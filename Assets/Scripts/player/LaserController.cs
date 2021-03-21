@@ -17,12 +17,13 @@ public class LaserController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             var mousePosition = Input.mousePosition;
+            // some positive value to keep
             mousePosition.z = 10;
             Vector3 screenToWorldPoint = Camera.main.ScreenToWorldPoint(mousePosition);
-            Instantiate(Resources.Load("Debug/MarkerUndirectional"), screenToWorldPoint, Quaternion.identity);
+            
             laser.ShootLaser(screenToWorldPoint);
         }
       

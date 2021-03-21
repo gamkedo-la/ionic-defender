@@ -9,16 +9,16 @@ namespace player
     [SelectionBase]
     public class LaserShooter : MonoBehaviour
     {
-        public Transform LaserOrigin;
+        public Transform LaserCenter;
         public float LaserOffset = 1;
         
 
         // Start is called before the first frame update
         void Start()
         {
-            if (LaserOrigin == null)
+            if (LaserCenter == null)
             {
-                LaserOrigin = transform;
+                LaserCenter = transform;
             }
         }
 
@@ -29,16 +29,19 @@ namespace player
 
         public void ShootLaser(Vector3 endPoint)
         {
-            Debug.DrawLine(LaserOrigin.position, endPoint, Color.magenta, 3f);
-            endPoint.z = LaserOrigin.transform.position.z;
-            
-            Vector3 direction = (endPoint - LaserOrigin.position).normalized;
+            Vector3 extendedEndpoint = new Vector3(endPoint.x, endPoint.y, LaserCenter.transform.position.z);
+            Vector3 direction = (extendedEndpoint - LaserCenter.position).normalized;
             direction.Scale(new Vector3(LaserOffset, LaserOffset, LaserOffset));
-            Vector3 mufflePoint = LaserOrigin.position + direction;
-
+            Vector3 laserOrigin = LaserCenter.position + direction;
             // TODO limit angle
-            
-            Instantiate(Resources.Load("Debug/MarkerUndirectional"), mufflePoint, Quaternion.identity);
+
+            Vector3 extendedDirection = new Vector3(direction.x, direction.y, direction.z);
+            extendedDirection.Scale(new Vector3(20,20,20));
+            Vector3 laserExtended = LaserCenter.position + extendedDirection;
+
+            Debug.DrawLine(laserOrigin, laserExtended, Color.magenta, 3000f);
+            Instantiate(Resources.Load("Debug/MarkerUndirectional"), laserOrigin, Quaternion.identity);
+            Instantiate(Resources.Load("Debug/MarkerUndirectional"), laserExtended, Quaternion.identity);
         }
     }
 }
