@@ -40,11 +40,11 @@ namespace player
             Vector3 laserExtended = LaserCenter.position + extendedDirection;
 
             Instantiate(Resources.Load("Debug/MarkerUndirectional"), laserOrigin, Quaternion.identity);
-            shootLaser(laserOrigin, laserExtended);
+            ShootLaser(laserOrigin, laserExtended);
 
         }
 
-        private static void shootLaser(Vector3 laserOrigin, Vector3 laserExtended)
+        private static void ShootLaser(Vector3 laserOrigin, Vector3 laserExtended)
         {
             Ray ray = new Ray(laserOrigin, laserExtended);
             RaycastHit hitInfo;

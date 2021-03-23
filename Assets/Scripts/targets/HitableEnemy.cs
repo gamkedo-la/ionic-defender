@@ -31,6 +31,7 @@ public class HitableEnemy : MonoBehaviour
 
     public void die()
     {
+        Debug.Log("died");
         Destroy(this.gameObject);
     }
 }
