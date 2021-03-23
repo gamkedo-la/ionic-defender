@@ -39,9 +39,25 @@ namespace player
             extendedDirection.Scale(new Vector3(20,20,20));
             Vector3 laserExtended = LaserCenter.position + extendedDirection;
 
-            Debug.DrawLine(laserOrigin, laserExtended, Color.magenta, 3000f);
             Instantiate(Resources.Load("Debug/MarkerUndirectional"), laserOrigin, Quaternion.identity);
-            Instantiate(Resources.Load("Debug/MarkerUndirectional"), laserExtended, Quaternion.identity);
+            shootLaser(laserOrigin, laserExtended);
+
+        }
+
+        private static void shootLaser(Vector3 laserOrigin, Vector3 laserExtended)
+        {
+            Ray ray = new Ray(laserOrigin, laserExtended);
+            RaycastHit hitInfo;
+            
+            if (Physics.Raycast(ray, out hitInfo, LayerMask.NameToLayer("Hitable")))
+            {
+                Debug.DrawLine(laserOrigin, laserExtended, Color.magenta, 3000f);
+                var hitableEnemy = hitInfo.collider.gameObject.GetComponent<HitableEnemy>();
+                if(hitableEnemy != null)
+                {
+                    hitableEnemy.takeDamage(100 * Time.deltaTime);
+                }
+            }
         }
     }
 }
