@@ -7,6 +7,7 @@ public class LaserController : MonoBehaviour
 {
     public LaserShooter laser;
 
+    public Transform DebugTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +21,10 @@ public class LaserController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             var mousePosition = Input.mousePosition;
-            // some positive value to keep
-            mousePosition.z = 10;
+            // some positive value
+             mousePosition.z = 3;
             Vector3 screenToWorldPoint = Camera.main.ScreenToWorldPoint(mousePosition);
+            DebugTarget.position = screenToWorldPoint;
             
             laser.ShootLaser(screenToWorldPoint);
         }
