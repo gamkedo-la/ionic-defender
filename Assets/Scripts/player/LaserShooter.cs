@@ -11,7 +11,11 @@ namespace player
     {
         private Transform laserCenter;
         public float laserOffset = 1;
+
         public Transform debugHitPosition;
+
+        private Vector2 laserOrigin;
+        private Vector3 laserExtended;
         // public Transform DebugHitPosition;
 
         // Start is called before the first frame update
@@ -30,12 +34,12 @@ namespace player
             Vector3 extendedEndpoint = new Vector3(endPoint.x, endPoint.y, laserCenter.transform.position.z);
             Vector3 direction = (extendedEndpoint - laserCenter.position).normalized;
             direction.Scale(new Vector3(laserOffset, laserOffset, laserOffset));
-            Vector3 laserOrigin = laserCenter.position + direction;
+            laserOrigin = laserCenter.position + direction;
             // TODO limit angle
 
             Vector3 extendedDirection = new Vector3(direction.x, direction.y, direction.z);
             extendedDirection.Scale(new Vector3(20, 20, 20));
-            Vector3 laserExtended = laserCenter.position + extendedDirection;
+            laserExtended = laserCenter.position + extendedDirection;
 
             // Instantiate(Resources.Load("Debug/MarkerUndirectional"), laserOrigin, Quaternion.identity);
             ShootLaser(laserOrigin, laserExtended);
@@ -45,10 +49,11 @@ namespace player
         {
             Ray ray = new Ray(laserOrigin, laserExtended - laserOrigin);
             Debug.DrawLine(laserOrigin, laserExtended, Color.magenta, Time.deltaTime);
-
+            VisualizeLaser(true);
+            
             int LayerMask = UnityEngine.LayerMask.GetMask("Hitable");
             RaycastHit2D hitInfo = Physics2D.Raycast(laserOrigin, laserExtended - laserOrigin, 1000f, LayerMask);
-            
+
             if (hitInfo)
             {
                 var hitableEnemy = hitInfo.collider.gameObject.GetComponent<HitableEnemy>();
@@ -57,8 +62,32 @@ namespace player
                     hitableEnemy.takeDamage(100 * Time.deltaTime);
                 }
 
-                debugHitPosition.position = hitInfo.point;
+                // debugHitPosition.position = hitInfo.point;
             }
+        }
+
+        private void VisualizeLaser(bool showLaser)
+        {
+            LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
+            if (showLaser)
+            {
+                if (!lineRenderer)
+                {
+                    lineRenderer = gameObject.AddComponent<LineRenderer>();
+                }
+
+                lineRenderer.SetPosition(0, laserOrigin);
+                lineRenderer.SetPosition(1, laserExtended);
+            }
+            else if (lineRenderer)
+            {
+                Destroy(lineRenderer);
+            }
+        }
+
+        public void StopLaser()
+        {
+            VisualizeLaser(false);
         }
     }
 }

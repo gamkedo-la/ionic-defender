@@ -28,6 +28,10 @@ public class LaserController : MonoBehaviour
             
             laser.ShootLaser(screenToWorldPoint);
         }
+        else
+        {
+            laser.StopLaser();
+        }
       
     }
 }
