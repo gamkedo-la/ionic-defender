@@ -24,7 +24,7 @@ public class LaserController : MonoBehaviour
             // some positive value
              mousePosition.z = 3;
             Vector3 screenToWorldPoint = Camera.main.ScreenToWorldPoint(mousePosition);
-            DebugTarget.position = screenToWorldPoint;
+            // DebugTarget.position = screenToWorldPoint;
             
             laser.ShootLaser(screenToWorldPoint);
         }

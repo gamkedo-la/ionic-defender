@@ -16,12 +16,15 @@ namespace player
 
         private Vector2 laserOrigin;
         private Vector3 laserExtended;
+
+        private LineRenderer lineRenderer;
         // public Transform DebugHitPosition;
 
         // Start is called before the first frame update
         void Start()
         {
             laserCenter = transform;
+            lineRenderer = gameObject.GetComponent<LineRenderer>();
         }
 
         // Update is called once per frame
@@ -68,20 +71,15 @@ namespace player
 
         private void VisualizeLaser(bool showLaser)
         {
-            LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
+            if (showLaser != lineRenderer.enabled)
+            {
+                lineRenderer.enabled = showLaser;
+            }
+
             if (showLaser)
             {
-                if (!lineRenderer)
-                {
-                    lineRenderer = gameObject.AddComponent<LineRenderer>();
-                }
-
                 lineRenderer.SetPosition(0, laserOrigin);
                 lineRenderer.SetPosition(1, laserExtended);
-            }
-            else if (lineRenderer)
-            {
-                Destroy(lineRenderer);
             }
         }
 
