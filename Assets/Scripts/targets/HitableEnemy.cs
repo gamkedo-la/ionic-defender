@@ -5,6 +5,7 @@ using UnityEngine;
 public class HitableEnemy : MonoBehaviour
 {
     public float Health = 1;
+    public int Damage = 1;
 
     // Start is called before the first frame update
     void Start()

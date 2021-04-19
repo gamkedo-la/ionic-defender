@@ -4,15 +4,44 @@ using UnityEngine;
 
 public class Settlement : MonoBehaviour
 {
+    public int StartingHP = 100;
+    public int CurrentHP  = 100;
+
+    public StatusBar HP;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        HP.SetMax(StartingHP, true);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name + " collided with settlement");
+
+        if(collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage(collision.gameObject.GetComponent<HitableEnemy>().Damage);
+        }
+    }
+
+    public void TakeDamage(int Damage)
+    {
+        CurrentHP -= Damage;
+
+        HP.SetFill(CurrentHP);
+
+        if(CurrentHP <= 0)
+        {
+
+            //Game Over
+
+        }
     }
 }
