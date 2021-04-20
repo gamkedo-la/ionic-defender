@@ -6,6 +6,8 @@ public class Asteroid : MonoBehaviour
 {
     public float speed = 1.0f;
 
+    public Transform Target;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,9 +18,7 @@ public class Asteroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 temp = transform.position;
-        temp.y -= (speed * Time.deltaTime);
-        transform.position = temp;
+        transform.position = Vector3.MoveTowards(transform.position, Target.position, speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

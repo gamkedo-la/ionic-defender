@@ -19,6 +19,7 @@ public class EnemySpawn : MonoBehaviour
     private int waveCount = 1;
     private int enemiesSpawned = 0;
 
+    public Transform[] EnemyTargetPoints;
     void Start()
     {
         waveCountText.text = "Day " + waveCount;
@@ -34,7 +35,13 @@ public class EnemySpawn : MonoBehaviour
             enemiesSpawned++;
             
             Vector3 enemyPos = new Vector3(Random.Range(spawnMinX, spawnMaxX), spawnY, 0f);
-            Instantiate(enemy, enemyPos, Quaternion.identity);
+            GameObject E = Instantiate(enemy, enemyPos, Quaternion.identity);
+
+            if(E.GetComponent<Asteroid>() != null)
+            {
+                E.GetComponent<Asteroid>().Target = EnemyTargetPoints[Random.Range(0, EnemyTargetPoints.Length)];
+            }
+
 		}
 
         if(enemiesSpawned >= enemiesPerWave)
