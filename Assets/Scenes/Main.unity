@@ -1139,10 +1139,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 849557262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99dcbb86581b0c4486af81a7a2432fc, type: 3}
+  m_Script: {fileID: 11500000, guid: bdd9c19f097763440b4d503e181afb24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Fill: {fileID: 849557264}
+  CurrentHP: 0
+  TargetHP: 0
+  DrainSpeed: 2
 --- !u!4 &879158029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7992719283718940423, guid: ff31f8b0665682f438098e4fe00205c2,
@@ -1806,7 +1809,7 @@ GameObject:
   - component: {fileID: 1689817497}
   m_Layer: 0
   m_Name: Settlement
-  m_TagString: Untagged
+  m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

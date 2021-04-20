@@ -7,7 +7,7 @@ public class Settlement : MonoBehaviour
     public int StartingHP = 100;
     public int CurrentHP  = 100;
 
-    public StatusBar HP;
+    public HpIndicator HP;
 
     // Start is called before the first frame update
     void Start()
@@ -33,15 +33,8 @@ public class Settlement : MonoBehaviour
 
     public void TakeDamage(int Damage)
     {
-        CurrentHP -= Damage;
 
-        HP.SetFill(CurrentHP);
+        HP.TakeDamage(Damage);
 
-        if(CurrentHP <= 0)
-        {
-
-            //Game Over
-
-        }
     }
 }
