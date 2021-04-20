@@ -940,6 +940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 770963694}
   - component: {fileID: 770963693}
+  - component: {fileID: 770963695}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -973,6 +974,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &770963695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770963692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dd91a8f39f8f444a0a3e831f228aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 3668741707904652568, guid: 71312c348159120458d6f169467dd306, type: 3}
+  secondsToSpawn: 2
+  spawnMinX: -3.8
+  spawnMaxX: 3
+  spawnY: 8
 --- !u!1 &775804360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,7 +1038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &806667326
 Transform:
   m_ObjectHideFlags: 0
@@ -2124,7 +2142,7 @@ PrefabInstance:
     - target: {fileID: 3668741707904652569, guid: 71312c348159120458d6f169467dd306,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.64
+      value: -4.99
       objectReference: {fileID: 0}
     - target: {fileID: 3668741707904652569, guid: 71312c348159120458d6f169467dd306,
         type: 3}
