@@ -19,6 +19,8 @@ public class EnemySpawn : MonoBehaviour
     private int waveCount = 1;
     private int enemiesSpawned = 0;
 
+    public HpIndicator PlayerHP;
+
     public Transform[] EnemyTargetPoints;
     void Start()
     {
@@ -61,6 +63,9 @@ public class EnemySpawn : MonoBehaviour
             waveCount++;
             enemiesSpawned = 0;
             waveCountText.text = "Day " + waveCount;
+
+            PlayerHP.NextWave(10); // Edit this number to change bonus HP given per wave
+
         } // Enf of if increase wave
     } // End of Update
 }

@@ -68,6 +68,14 @@ public class HpIndicator : MonoBehaviour
 
     }
 
+    public void NextWave(float BonusHP)
+    {
+
+        CurrentHP += BonusHP;
+        TargetHP = CurrentHP;
+
+    }
+
 
 
 }
