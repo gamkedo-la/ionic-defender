@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 25
-  Damage: 5
+  Damage: 15
 --- !u!58 &3668741707904652570
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  Target: {fileID: 0}
 --- !u!50 &5732671794797023789
 Rigidbody2D:
   serializedVersion: 4
