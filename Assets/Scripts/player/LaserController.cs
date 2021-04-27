@@ -9,17 +9,46 @@ public class LaserController : MonoBehaviour
 
     public Transform DebugTarget;
 
+    public float heatCoolDownSeconds;
+    public float maxHeatSeconds;
+    private float currentHeat;
+    private bool overheat = false;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+	private void Update()
+	{
+        Debug.Log(currentHeat);
+
+		if(currentHeat >= maxHeatSeconds)
+		{
+            overheat = true;
+        }
+
+        if(overheat)
+		{
+            currentHeat -= Time.deltaTime;
+		}
+
+        if(currentHeat <= 0)
+		{
+            currentHeat = 0;
+            overheat = false;
+        }
+	}
+
+	// Update is called once per frame
+	void FixedUpdate()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !overheat)
         {
+            // Heat increase
+            currentHeat += Time.fixedDeltaTime;
+
             var mousePosition = Input.mousePosition;
             // some positive value
              mousePosition.z = 3;
@@ -30,6 +59,10 @@ public class LaserController : MonoBehaviour
         }
         else
         {
+            if(currentHeat > 0)
+			{
+                currentHeat -= Time.fixedDeltaTime;
+            }
             laser.StopLaser();
         }
       

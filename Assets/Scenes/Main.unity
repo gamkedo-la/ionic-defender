@@ -2557,9 +2557,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
         type: 3}
+      propertyPath: maxHeat
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
       propertyPath: DebugTarget
       value: 
       objectReference: {fileID: 1547879222}
+    - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: maxHeatSeconds
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: heatDecreaseRate
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: heatIncreaseRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: heatCoolDownSeconds
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4638230338360359020, guid: fbefba2f112adb343b4bba4b4c6a2141,
         type: 3}
       propertyPath: m_Name
