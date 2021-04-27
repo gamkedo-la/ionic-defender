@@ -1047,7 +1047,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dd91a8f39f8f444a0a3e831f228aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3668741707904652568, guid: 71312c348159120458d6f169467dd306, type: 3}
+  enemies:
+  - {fileID: 303914084577019365, guid: 0fa6e01ec1a6974448b620f1dbe6065d, type: 3}
+  - {fileID: 3264172175633089631, guid: 8313fa6ebaccb7d40ba1b4917dceea1a, type: 3}
+  - {fileID: 5976086961150186811, guid: 3f10ce5b0fcb5d64db50c2bad23ebda7, type: 3}
   secondsToSpawn: 2
   spawnMinX: -3.8
   spawnMaxX: 3
@@ -1056,6 +1059,7 @@ MonoBehaviour:
   reduceSpawnTime: 0.2
   waveCountText: {fileID: 1981315103}
   minSpawnTime: 0.5
+  PlayerHP: {fileID: 0}
   EnemyTargetPoints:
   - {fileID: 402352357}
   - {fileID: 525393299}

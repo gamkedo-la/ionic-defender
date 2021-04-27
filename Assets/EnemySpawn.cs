@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemySpawn : MonoBehaviour
 {
-    public GameObject enemy;
+    public GameObject[] enemies;
     public float secondsToSpawn;
     public float spawnMinX;
     public float spawnMaxX;
@@ -37,7 +37,8 @@ public class EnemySpawn : MonoBehaviour
             enemiesSpawned++;
             
             Vector3 enemyPos = new Vector3(Random.Range(spawnMinX, spawnMaxX), spawnY, 0f);
-            GameObject E = Instantiate(enemy, enemyPos, Quaternion.identity);
+            int index = Random.Range(0, enemies.Length);
+            GameObject E = Instantiate(enemies[index], enemyPos, Quaternion.identity);
 
             if(E.GetComponent<Asteroid>() != null)
             {
