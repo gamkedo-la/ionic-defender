@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using player;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LaserController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class LaserController : MonoBehaviour
     private float currentHeat;
     private bool overheat = false;
 
+    public Slider heatSlider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +25,7 @@ public class LaserController : MonoBehaviour
 
 	private void Update()
 	{
-        Debug.Log(currentHeat);
+        heatSlider.value = currentHeat / maxHeatSeconds * 100;
 
 		if(currentHeat >= maxHeatSeconds)
 		{
@@ -46,7 +49,6 @@ public class LaserController : MonoBehaviour
         }
 	}
 
-	// Update is called once per frame
 	void FixedUpdate()
     {
         if (Input.GetMouseButton(0) && !overheat)
