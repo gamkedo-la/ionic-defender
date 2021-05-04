@@ -1172,7 +1172,7 @@ MonoBehaviour:
   reduceSpawnTime: 0.2
   waveCountText: {fileID: 1981315103}
   minSpawnTime: 0.5
-  PlayerHP: {fileID: 0}
+  PlayerHP: {fileID: 849557265}
   EnemyTargetPoints:
   - {fileID: 402352357}
   - {fileID: 525393299}
