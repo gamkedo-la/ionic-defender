@@ -14,6 +14,7 @@ public class LaserController : MonoBehaviour
     public float maxHeatSeconds;
     private float currentHeat;
     private bool overheat = false;
+    public float dampening;
 
     public Slider heatSlider;
 
@@ -68,7 +69,7 @@ public class LaserController : MonoBehaviour
         {
             if(currentHeat > 0)
 			{
-                currentHeat -= Time.fixedDeltaTime;
+                currentHeat -= Time.fixedDeltaTime * dampening;
             }
             laser.StopLaser();
         }

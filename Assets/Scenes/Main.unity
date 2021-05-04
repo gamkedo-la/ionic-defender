@@ -2574,6 +2574,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
         type: 3}
+      propertyPath: dampening
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
       propertyPath: heatSlider
       value: 
       objectReference: {fileID: 106275097}
