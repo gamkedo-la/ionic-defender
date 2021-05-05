@@ -7,16 +7,31 @@ public class HitableEnemy : MonoBehaviour
     public float Health = 1;
     public int Damage = 1;
 
+    public int Scrap;
+
+    public float ScrapDecayRate;
+
+    private float ScrapDecayTimer;
+
+    public Score score;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        ScrapDecayTimer = ScrapDecayRate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ScrapDecayTimer -= Time.deltaTime;
+
+        if (ScrapDecayTimer <= 0)
+        {
+            Scrap -= 1;
+
+            ScrapDecayTimer = ScrapDecayRate;
+        }
     }
 
     public void takeDamage(float damage)
@@ -33,6 +48,7 @@ public class HitableEnemy : MonoBehaviour
     public void die()
     {
         Debug.Log("died");
+        score.AddScrap(Scrap);
         Destroy(this.gameObject);
     }
 }

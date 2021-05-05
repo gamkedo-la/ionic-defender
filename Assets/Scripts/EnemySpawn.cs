@@ -21,6 +21,8 @@ public class EnemySpawn : MonoBehaviour
 
     public HpIndicator PlayerHP;
 
+    public Score score;
+
     public Transform[] EnemyTargetPoints;
     void Start()
     {
@@ -44,6 +46,10 @@ public class EnemySpawn : MonoBehaviour
             {
                 E.GetComponent<Asteroid>().Target = EnemyTargetPoints[Random.Range(0, EnemyTargetPoints.Length)];
             }
+            if(E.GetComponent<HitableEnemy>() != null)
+            {
+                E.GetComponent<HitableEnemy>().score = score;
+            }
 
 		}
 
@@ -62,6 +68,7 @@ public class EnemySpawn : MonoBehaviour
                 secondsToSpawn = minSpawnTime;
             }
             waveCount++;
+            score.NextWave();
             enemiesSpawned = 0;
             waveCountText.text = "Day " + waveCount;
 

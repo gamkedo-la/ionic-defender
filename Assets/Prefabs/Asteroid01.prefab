@@ -50,6 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 25
   Damage: 15
+  Scrap: 10
+  ScrapDecayRate: 1
+  score: {fileID: 0}
 --- !u!58 &303914084577019367
 CircleCollider2D:
   m_ObjectHideFlags: 0
