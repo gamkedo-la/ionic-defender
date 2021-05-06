@@ -15,6 +15,8 @@ public class HitableEnemy : MonoBehaviour
 
     public Score score;
 
+    public GameObject ScrapText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,8 @@ public class HitableEnemy : MonoBehaviour
     {
         Debug.Log("died");
         score.AddScrap(Scrap);
+        GameObject T = Instantiate(ScrapText, transform.position, Quaternion.identity);
+        T.GetComponent<TextMesh>().text = Scrap.ToString();
         Destroy(this.gameObject);
     }
 }

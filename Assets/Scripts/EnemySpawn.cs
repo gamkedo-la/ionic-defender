@@ -23,6 +23,8 @@ public class EnemySpawn : MonoBehaviour
 
     public Score score;
 
+    public GameObject ScrapText;
+
     public Transform[] EnemyTargetPoints;
     void Start()
     {
@@ -49,6 +51,7 @@ public class EnemySpawn : MonoBehaviour
             if(E.GetComponent<HitableEnemy>() != null)
             {
                 E.GetComponent<HitableEnemy>().score = score;
+                E.GetComponent<HitableEnemy>().ScrapText = ScrapText;
             }
 
 		}

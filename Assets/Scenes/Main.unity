@@ -1178,6 +1178,8 @@ MonoBehaviour:
   minSpawnTime: 0.5
   PlayerHP: {fileID: 849557265}
   score: {fileID: 770963696}
+  ScrapText: {fileID: 2402234973123654432, guid: 7afac834b2bcc474685e3b707af6d4ac,
+    type: 3}
   EnemyTargetPoints:
   - {fileID: 402352357}
   - {fileID: 525393299}
