@@ -21,10 +21,16 @@ public class Bacterion : MonoBehaviour
 
     public bool Active = false;
 
+    public float ShootTimer;
+    float STReset;
+
+    public GameObject BulletOrb;
+
     // Start is called before the first frame update
     void Start()
     {
         FindStartPos();
+        STReset = ShootTimer;
     }
 
     // Update is called once per frame
@@ -48,6 +54,14 @@ public class Bacterion : MonoBehaviour
             Y = CenterY + (height * Mathf.Sin(Angle));
 
             transform.position = new Vector3(X, Y, 0);
+
+            ShootTimer -= Time.deltaTime;
+
+            if(ShootTimer <= 0)
+            {
+                Instantiate(BulletOrb, transform.position, Quaternion.identity);
+                ShootTimer = STReset;
+            }
         }
 
     }
@@ -56,7 +70,7 @@ public class Bacterion : MonoBehaviour
     public void FindStartPos()
     {
 
-        CenterX = Random.Range(-5.5f, 5.5f);
+        CenterX = Random.Range(-5.0f, 5.0f);
 
         CenterY = Random.Range(5.0f, 6.0f);
 
