@@ -427,7 +427,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 67b2e7868bac0d344b5d0132bc68ceb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2436,7 +2436,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 67b2e7868bac0d344b5d0132bc68ceb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2529,7 +2529,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 67b2e7868bac0d344b5d0132bc68ceb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2745,7 +2745,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 67b2e7868bac0d344b5d0132bc68ceb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3351,11 +3351,21 @@ PrefabInstance:
       propertyPath: heatCoolDownSeconds
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4638230338360358994, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 67b2e7868bac0d344b5d0132bc68ceb3, type: 2}
     - target: {fileID: 4638230338360359020, guid: fbefba2f112adb343b4bba4b4c6a2141,
         type: 3}
       propertyPath: m_Name
       value: LaserTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 4638230338609398680, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 67b2e7868bac0d344b5d0132bc68ceb3, type: 2}
     - target: {fileID: 4638230338920224819, guid: fbefba2f112adb343b4bba4b4c6a2141,
         type: 3}
       propertyPath: LaserOffset
@@ -3381,6 +3391,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4638230338920224845, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 67b2e7868bac0d344b5d0132bc68ceb3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbefba2f112adb343b4bba4b4c6a2141, type: 3}
 --- !u!1001 &7992719283914114058
