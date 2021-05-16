@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 243507768}
   - component: {fileID: 243507767}
   - component: {fileID: 243507766}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: baseground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,7 +633,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 298414234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlanetGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,7 +672,7 @@ GameObject:
   - component: {fileID: 349138969}
   - component: {fileID: 349138968}
   - component: {fileID: 349138967}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1765,7 +1765,7 @@ GameObject:
   - component: {fileID: 978722133}
   - component: {fileID: 978722132}
   - component: {fileID: 978722131}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1859,7 +1859,7 @@ GameObject:
   - component: {fileID: 989335412}
   - component: {fileID: 989335411}
   - component: {fileID: 989335410}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2135,7 +2135,7 @@ GameObject:
   - component: {fileID: 1222159950}
   - component: {fileID: 1222159949}
   - component: {fileID: 1222159948}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2290,7 +2290,7 @@ GameObject:
   - component: {fileID: 1306330522}
   - component: {fileID: 1306330521}
   - component: {fileID: 1306330520}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background  (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3089,7 +3089,7 @@ GameObject:
   - component: {fileID: 2008008792}
   - component: {fileID: 2008008791}
   - component: {fileID: 2008008790}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background far
   m_TagString: Untagged
   m_Icon: {fileID: 0}
