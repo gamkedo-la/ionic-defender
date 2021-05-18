@@ -53,7 +53,8 @@ MonoBehaviour:
   Scrap: 10
   ScrapDecayRate: 1
   score: {fileID: 0}
-  ScrapText: {fileID: 0}
+  ScrapText: {fileID: 2402234973123654432, guid: 7afac834b2bcc474685e3b707af6d4ac,
+    type: 3}
   explosionParticles: {fileID: 290809905798184283, guid: dee817d7504c0cf47a3e89cf169c7f8f,
     type: 3}
 --- !u!58 &303914084577019367

@@ -86,10 +86,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 1
   Damage: 10
-  Scrap: 0
+  Scrap: 20
   ScrapDecayRate: 0
   score: {fileID: 0}
-  ScrapText: {fileID: 0}
+  ScrapText: {fileID: 2402234973123654432, guid: 7afac834b2bcc474685e3b707af6d4ac,
+    type: 3}
+  explosionParticles: {fileID: 0}
 --- !u!114 &2964923362574839887
 MonoBehaviour:
   m_ObjectHideFlags: 0
