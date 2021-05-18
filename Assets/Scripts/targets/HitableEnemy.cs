@@ -17,10 +17,13 @@ public class HitableEnemy : MonoBehaviour
 
     public GameObject ScrapText;
 
+    public GameObject explosionParticles;
+
     // Start is called before the first frame update
     void Start()
     {
         ScrapDecayTimer = ScrapDecayRate;
+        score = GameObject.FindGameObjectWithTag("GameController").GetComponent<Score>();
     }
 
     // Update is called once per frame
@@ -52,6 +55,10 @@ public class HitableEnemy : MonoBehaviour
         Debug.Log("died");
         score.AddScrap(Scrap);
         GameObject T = Instantiate(ScrapText, transform.position, Quaternion.identity);
+        if (explosionParticles != null)
+        {
+            GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+        }
         T.GetComponent<TextMesh>().text = Scrap.ToString();
         Destroy(this.gameObject);
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Settlement
+  - ScrapText
   layers:
   - Default
   - TransparentFX

@@ -53,6 +53,9 @@ MonoBehaviour:
   Scrap: 10
   ScrapDecayRate: 1
   score: {fileID: 0}
+  ScrapText: {fileID: 0}
+  explosionParticles: {fileID: 290809905798184283, guid: dee817d7504c0cf47a3e89cf169c7f8f,
+    type: 3}
 --- !u!58 &5976086961150186809
 CircleCollider2D:
   m_ObjectHideFlags: 0

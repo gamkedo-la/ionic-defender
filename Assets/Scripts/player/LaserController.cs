@@ -38,7 +38,11 @@ public class LaserController : MonoBehaviour
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 			for (int i = 0; i < enemies.Length; i++)
 			{
-                Destroy(enemies[i]);
+                HitableEnemy hitableEnemy = enemies[i].GetComponent<HitableEnemy>();
+                if (hitableEnemy != null)
+                {
+                    hitableEnemy.die();
+                }
 			}
             currentHeat -= Time.deltaTime;
 		}
