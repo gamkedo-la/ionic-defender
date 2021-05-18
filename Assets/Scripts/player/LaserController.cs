@@ -15,6 +15,7 @@ public class LaserController : MonoBehaviour
     private float currentHeat;
     private bool overheat = false;
     public float dampening;
+    private bool destroyEnemies = false;
 
     public Slider heatSlider;
 
@@ -31,19 +32,24 @@ public class LaserController : MonoBehaviour
 		if(currentHeat >= maxHeatSeconds)
 		{
             overheat = true;
+            destroyEnemies = true;
         }
 
         if(overheat)
 		{
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-			for (int i = 0; i < enemies.Length; i++)
-			{
-                HitableEnemy hitableEnemy = enemies[i].GetComponent<HitableEnemy>();
-                if (hitableEnemy != null)
+            if (destroyEnemies)
+            {
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                for (int i = 0; i < enemies.Length; i++)
                 {
-                    hitableEnemy.die();
+                    HitableEnemy hitableEnemy = enemies[i].GetComponent<HitableEnemy>();
+                    if (hitableEnemy != null)
+                    {
+                        hitableEnemy.die();
+                    }
                 }
-			}
+                destroyEnemies = false;
+            }
             currentHeat -= Time.deltaTime;
 		}
 
