@@ -19,6 +19,8 @@ public class HitableEnemy : MonoBehaviour
 
     public GameObject explosionParticles;
 
+    public EnemySpawn ES;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,20 +48,26 @@ public class HitableEnemy : MonoBehaviour
         // would it make sense to decouple (extract) this logic?
         if(this.Health<=0)
         {
-            die();
+            die(true);
         }
     }
 
-    public void die()
+    public void die(bool KilledByPlayer)
     {
+        ES.EnemyDeath(gameObject);
         Debug.Log("died");
-        score.AddScrap(Scrap);
-        GameObject T = Instantiate(ScrapText, transform.position, Quaternion.identity);
-        if (explosionParticles != null)
+
+        if (KilledByPlayer == true)
         {
-            GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+            score.AddScrap(Scrap);
+            GameObject T = Instantiate(ScrapText, transform.position, Quaternion.identity);
+            if (explosionParticles != null)
+            {
+                GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+            }
+            T.GetComponent<TextMesh>().text = Scrap.ToString();
         }
-        T.GetComponent<TextMesh>().text = Scrap.ToString();
+
         Destroy(this.gameObject);
     }
 }

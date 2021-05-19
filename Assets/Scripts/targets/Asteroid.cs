@@ -24,7 +24,7 @@ public class Asteroid : MonoBehaviour
     {
         if(collision.gameObject.tag == "Settlement")
         {
-            Destroy(gameObject);
+            GetComponent<HitableEnemy>().die(false);
         }
     }
 }

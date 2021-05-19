@@ -45,7 +45,7 @@ public class LaserController : MonoBehaviour
                     HitableEnemy hitableEnemy = enemies[i].GetComponent<HitableEnemy>();
                     if (hitableEnemy != null)
                     {
-                        hitableEnemy.die();
+                        hitableEnemy.die(true);
                     }
                 }
                 destroyEnemies = false;
