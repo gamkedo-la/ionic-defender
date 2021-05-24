@@ -31,7 +31,8 @@ public class EnemySpawn : MonoBehaviour
 
     public CenterScreenText screenText;
 
-    List<GameObject> ActiveEnemies = new List<GameObject>();
+    [HideInInspector]
+    public List<GameObject> ActiveEnemies = new List<GameObject>();
 
     void Start()
     {
