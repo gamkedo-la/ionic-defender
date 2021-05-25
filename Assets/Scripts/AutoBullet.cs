@@ -30,7 +30,11 @@ public class AutoBullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<HitableEnemy>().takeDamage(damage);
+            HitableEnemy hitableEnemy = collision.gameObject.GetComponent<HitableEnemy>();
+            if(hitableEnemy != null)
+			{
+                hitableEnemy.takeDamage(damage);
+            }
             Destroy(gameObject);
         }
     }

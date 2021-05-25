@@ -54,7 +54,11 @@ public class HitableEnemy : MonoBehaviour
 
     public void die(bool KilledByPlayer)
     {
-        ES.EnemyDeath(gameObject);
+        if(ES != null)
+		{
+            ES.EnemyDeath(gameObject);
+        }
+        
         Debug.Log("died");
 
         if (KilledByPlayer == true)

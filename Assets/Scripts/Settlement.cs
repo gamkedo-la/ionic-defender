@@ -27,7 +27,11 @@ public class Settlement : MonoBehaviour
 
         if(collision.gameObject.tag == "Enemy")
         {
-            TakeDamage(collision.gameObject.GetComponent<HitableEnemy>().Damage);
+            HitableEnemy hitableEnemy = collision.gameObject.GetComponent<HitableEnemy>();
+            if(hitableEnemy != null)
+			{
+                TakeDamage(hitableEnemy.Damage);
+            }
         }
     }
 
