@@ -79,6 +79,7 @@ MonoBehaviour:
     type: 3}
   explosionParticles: {fileID: 290809905798184283, guid: dee817d7504c0cf47a3e89cf169c7f8f,
     type: 3}
+  ES: {fileID: 0}
 --- !u!70 &2923978392530824030
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d118d8c87d7dcc548b0c9110991f2021, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
