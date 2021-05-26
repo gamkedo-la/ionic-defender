@@ -10,8 +10,10 @@ public class AutoTurret : MonoBehaviour
 
     public GameObject CurrentTarget;
 
-    public float ShotTimer;
+    float ShotTimer = 2.0f;
     float STreset;
+
+    public float ReloadSpeed = 1;
 
     public float BulletSpeed;
     public float Damage;
@@ -48,7 +50,7 @@ public class AutoTurret : MonoBehaviour
 
         if(CurrentTarget != null)
         {
-            timer -= Time.deltaTime;
+            timer -= Time.deltaTime * ReloadSpeed;
 
             if(timer <= 0)
             {
@@ -69,6 +71,21 @@ public class AutoTurret : MonoBehaviour
         B.transform.LookAt(CurrentTarget.transform.position);
         B.GetComponent<AutoBullet>().damage = Damage;
         B.GetComponent<AutoBullet>().speed = BulletSpeed;
+    }
+
+    public void UpgradeDamage(float AdditionalDamage)
+    {
+        Damage += AdditionalDamage;
+    }
+
+    public void UpgradeReloadSpeed(float AdditionalReloadSpeed)
+    {
+        ReloadSpeed += AdditionalReloadSpeed;
+    }
+
+    public void UpgradeBulletSpeed(float AdditionalBulletSpeed)
+    {
+        BulletSpeed += AdditionalBulletSpeed;
     }
 
 }
