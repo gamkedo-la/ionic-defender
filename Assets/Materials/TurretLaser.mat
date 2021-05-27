@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shcokwave
-  m_Shader: {fileID: -6465566751694194690, guid: 83b9c6bc77fb2dd4d9f0565feb33d157,
+  m_Name: TurretLaser
+  m_Shader: {fileID: -6465566751694194690, guid: 48627bb4b1d679d40a52eb3057e96621,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,5 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - Vector1_C0AD59A4: 5
+    - Vector1_C309F019: 30
+    - Vector1_DC1B14CA: -4.39
+    m_Colors:
+    - Color_36CFAF9: {r: 0.34376112, g: 0.3776809, b: 0.9716981, a: 1}
+    - Vector2_2D67884E: {r: -1, g: 0, b: 0, a: 0}
