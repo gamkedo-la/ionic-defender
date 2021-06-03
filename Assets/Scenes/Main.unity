@@ -3879,7 +3879,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1922174041}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2105235407}
+        m_MethodName: UpgradeTurrets
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1922174041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4371,6 +4382,7 @@ MonoBehaviour:
   BuyTurret: {fileID: 1964944855}
   UpTurret: {fileID: 1922174039}
   Shield: {fileID: 1580079535}
+  AdditionalTurretDamage: 2
 --- !u!1001 &4638230339878458994
 PrefabInstance:
   m_ObjectHideFlags: 0

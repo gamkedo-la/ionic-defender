@@ -16,6 +16,9 @@ public class Upgrades : MonoBehaviour
     public UpgradeButtonManager Shield;
 
 
+    public float AdditionalTurretDamage = 2.0f;
+
+
     private void Start()
     {
         TurretL.SetActive(false);
@@ -36,6 +39,8 @@ public class Upgrades : MonoBehaviour
         {
             TurretL.SetActive(true);
             AutoTurret = 1;
+            UpTurret.PrereqPurchased = true;
+
         }
         else if(AutoTurret == 1)
         {
@@ -47,6 +52,16 @@ public class Upgrades : MonoBehaviour
         }
 
         score.SpendScrap(BuyTurret.Cost);
+
+
+    }
+
+    public void UpgradeTurrets()
+    {
+        TurretL.GetComponent<AutoTurret>().UpgradeDamage(AdditionalTurretDamage);
+        TurretR.GetComponent<AutoTurret>().UpgradeDamage(AdditionalTurretDamage);
+
+        score.SpendScrap(UpTurret.Cost);
 
 
     }
