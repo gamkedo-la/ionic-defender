@@ -44,6 +44,11 @@ public class Score : MonoBehaviour
         UpdateUI();
     }
 
+    public int GetScrap()
+    {
+        return ScrapCount;
+    }
+
     public void UpdateUI()
     {
         ScrapCountText.text = "Current Scrap: " + ScrapCount + "\nTotal Scrap Collected: " + TotalScrapCollected;
