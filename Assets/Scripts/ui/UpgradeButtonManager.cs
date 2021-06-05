@@ -15,11 +15,19 @@ public class UpgradeButtonManager : MonoBehaviour
 
     public Score score;
 
+    public string HoverText;
+
+    public GameObject tooltip;
+
+    public Text TTText;
+
     // Start is called before the first frame update
     void Start()
     {
         button = GetComponent<Button>();
         button.interactable = false;
+
+        UpdateToolTipText(HoverText);
     }
 
     // Update is called once per frame
@@ -40,6 +48,23 @@ public class UpgradeButtonManager : MonoBehaviour
             button.interactable = false;
         }
 
+
+    }
+
+    public void ShowToolTip()
+    {
+        tooltip.SetActive(true);
+    }
+
+    public void HideToolTip()
+    {
+        tooltip.SetActive(false);
+    }
+
+    public void UpdateToolTipText(string newText)
+    {
+        Debug.Log("updating tool tip text");
+        TTText.text = newText;
 
     }
 
