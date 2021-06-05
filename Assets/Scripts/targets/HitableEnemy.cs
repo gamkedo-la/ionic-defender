@@ -21,11 +21,14 @@ public class HitableEnemy : MonoBehaviour
 
     public EnemySpawn ES;
 
+    public float maxHealth;
+
     // Start is called before the first frame update
     void Start()
     {
         ScrapDecayTimer = ScrapDecayRate;
         score = GameObject.FindGameObjectWithTag("GameController").GetComponent<Score>();
+        maxHealth = Health;
     }
 
     // Update is called once per frame
