@@ -41,7 +41,7 @@ public class Upgrades : MonoBehaviour
             AutoTurret = 1;
             UpTurret.PrereqPurchased = true;
 
-            BuyTurret.UpdateToolTipText("Purchase a second automated turret");
+            BuyTurret.UpdateToolTipText("Add a second auto turret");
 
         }
         else if(AutoTurret == 1)
@@ -66,6 +66,9 @@ public class Upgrades : MonoBehaviour
 
         score.SpendScrap(UpTurret.Cost);
 
+        UpTurret.Cost += 10;
+
+        UpTurret.UpdateToolTipText(UpTurret.HoverText);
 
     }
 

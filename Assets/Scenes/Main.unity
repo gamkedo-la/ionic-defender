@@ -1299,7 +1299,7 @@ PrefabInstance:
     - target: {fileID: 6076248849837757342, guid: 4f5f9e896472382418795692b5403438,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6076248849837757342, guid: 4f5f9e896472382418795692b5403438,
         type: 3}
@@ -2273,7 +2273,7 @@ PrefabInstance:
     - target: {fileID: 6076248849837757342, guid: 4f5f9e896472382418795692b5403438,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6076248849837757342, guid: 4f5f9e896472382418795692b5403438,
         type: 3}
@@ -4227,7 +4227,7 @@ MonoBehaviour:
   FullyPurchased: 0
   Cost: 50
   score: {fileID: 770963696}
-  HoverText: Upgrade automated turret damage
+  HoverText: Upgrade auto turret damage
   tooltip: {fileID: 920594271}
   TTText: {fileID: 301461511}
 --- !u!114 &1922174040
@@ -4786,7 +4786,7 @@ PrefabInstance:
     - target: {fileID: 6076248849837757342, guid: 4f5f9e896472382418795692b5403438,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6076248849837757342, guid: 4f5f9e896472382418795692b5403438,
         type: 3}

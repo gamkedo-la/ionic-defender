@@ -64,7 +64,7 @@ public class UpgradeButtonManager : MonoBehaviour
     public void UpdateToolTipText(string newText)
     {
         Debug.Log("updating tool tip text");
-        TTText.text = newText;
+        TTText.text = newText + "\n" + Cost.ToString() + " Scrap";
 
     }
 
