@@ -8,12 +8,14 @@ public class Upgrades : MonoBehaviour
     int AutoTurret = 0;
     public GameObject TurretL;
     public GameObject TurretR;
+    public GameObject ShieldManager;
+
 
     public Score score;
 
     public UpgradeButtonManager BuyTurret;
     public UpgradeButtonManager UpTurret;
-    public UpgradeButtonManager Shield;
+    public UpgradeButtonManager ShieldButtonManager;
 
 
     public float AdditionalTurretDamage = 2.0f;
@@ -72,5 +74,16 @@ public class Upgrades : MonoBehaviour
 
     }
 
+    public void PurchaseShield()
+    {
+        
+        ShieldManager.GetComponent<ShieldManager>().Purchased = true;
+        ShieldManager.GetComponent<ShieldManager>().RespawnTime = .1f;
+        //ShieldManager.GetComponent<ShieldManager>().shieldDown = false;
+
+        ShieldButtonManager.FullyPurchased = true;
+
+        score.SpendScrap(ShieldButtonManager.Cost);
+    }
 
 }

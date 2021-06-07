@@ -28,7 +28,7 @@ public class BulletOrb : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Settlement")
+        if (collision.gameObject.tag == "Settlement" || collision.gameObject.tag == "Shield")
         {
             Destroy(gameObject);
         }

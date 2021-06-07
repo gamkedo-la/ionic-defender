@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Settlement
   - ScrapText
+  - Shield
   layers:
   - Default
   - TransparentFX

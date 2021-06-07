@@ -9,6 +9,8 @@ public class Settlement : MonoBehaviour
 
     public HpIndicator HP;
 
+    public ShieldManager shield;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,15 @@ public class Settlement : MonoBehaviour
             HitableEnemy hitableEnemy = collision.gameObject.GetComponent<HitableEnemy>();
             if(hitableEnemy != null)
 			{
-                TakeDamage(hitableEnemy.Damage);
+                if (shield.shieldDown == true)
+                {
+
+                    TakeDamage(hitableEnemy.Damage);
+                }
+                else
+                {
+                    shield.shield.TakeDamage(hitableEnemy.Damage);
+                }
             }
         }
     }
