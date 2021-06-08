@@ -2464,6 +2464,7 @@ MonoBehaviour:
   RespawnTime: 5
   shieldDown: 1
   Purchased: 0
+  upgradeAmount: 20
 --- !u!4 &903542528
 Transform:
   m_ObjectHideFlags: 0

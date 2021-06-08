@@ -20,6 +20,7 @@ public class Upgrades : MonoBehaviour
 
     public float AdditionalTurretDamage = 2.0f;
 
+    bool ShieldPurchased;
 
     private void Start()
     {
@@ -76,14 +77,28 @@ public class Upgrades : MonoBehaviour
 
     public void PurchaseShield()
     {
-        
-        ShieldManager.GetComponent<ShieldManager>().Purchased = true;
-        ShieldManager.GetComponent<ShieldManager>().RespawnTime = .1f;
-        //ShieldManager.GetComponent<ShieldManager>().shieldDown = false;
+        if (ShieldPurchased == false)
+        {
 
-        ShieldButtonManager.FullyPurchased = true;
+            ShieldManager.GetComponent<ShieldManager>().Purchased = true;
+            ShieldManager.GetComponent<ShieldManager>().RespawnTime = .1f;
+            //ShieldManager.GetComponent<ShieldManager>().shieldDown = false;
 
-        score.SpendScrap(ShieldButtonManager.Cost);
+            //ShieldButtonManager.FullyPurchased = true;
+
+            //ShieldButtonManager.Cost += 20;
+
+            ShieldButtonManager.UpdateToolTipText("Upgrade Shield Strength");
+
+            score.SpendScrap(ShieldButtonManager.Cost);
+
+            ShieldPurchased = true;
+        }
+        else
+        {
+            ShieldManager.GetComponent<ShieldManager>().Upgrade();
+            ShieldButtonManager.Cost += 20;
+        }
     }
 
 }

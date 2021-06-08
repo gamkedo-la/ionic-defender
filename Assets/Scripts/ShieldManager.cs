@@ -13,6 +13,8 @@ public class ShieldManager : MonoBehaviour
 
     public bool Purchased;
 
+    public float upgradeAmount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,11 @@ public class ShieldManager : MonoBehaviour
         shield.gameObject.SetActive(false);
         shieldDown = true;
 
+    }
+
+    public void Upgrade()
+    {
+        shield.MaxHP += upgradeAmount;
     }
 
 }
