@@ -42,12 +42,13 @@ public class HpIndicator : MonoBehaviour
             Fill.value = CurrentHP;
         }
 
-        if(CurrentHP <= 0)
+        if(CurrentHP <= 0 && gameOverDialog != null)
         {
             //Game Over
             gameOverDialog.SetActive(true);
             for(int i=0;i< playerObjectsToRemoveWhenDying.Length;i++) {
-                playerObjectsToRemoveWhenDying[i].SetActive(false); 
+                playerObjectsToRemoveWhenDying[i].SetActive(false);
+                gameObject.SetActive(false);
             }
         }
     }
