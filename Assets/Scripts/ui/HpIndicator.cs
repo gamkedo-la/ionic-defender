@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class HpIndicator : MonoBehaviour
 {
-    private GameController _gameController;
+    public GameObject gameOverDialog;
+
+    public GameObject[] playerObjectsToRemoveWhenDying;
 
     public Slider Fill;
 
@@ -23,7 +25,12 @@ public class HpIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(CurrentHP > TargetHP)
+        if(Input.GetKeyDown(KeyCode.D)) {
+            Debug.Log("instant death test");
+            CurrentHP = -0.1f;
+        }
+
+        if (CurrentHP > TargetHP)
         {
             CurrentHP -= (DrainSpeed * Time.deltaTime);
 
@@ -38,6 +45,10 @@ public class HpIndicator : MonoBehaviour
         if(CurrentHP <= 0)
         {
             //Game Over
+            gameOverDialog.SetActive(true);
+            for(int i=0;i< playerObjectsToRemoveWhenDying.Length;i++) {
+                playerObjectsToRemoveWhenDying[i].SetActive(false); 
+            }
         }
     }
 
