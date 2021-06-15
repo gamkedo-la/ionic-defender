@@ -18,6 +18,7 @@ public class LaserController : MonoBehaviour
     private bool destroyEnemies = false;
 
     public Slider heatSlider;
+    public PulseBurst heatWave;
 
     // Start is called before the first frame update
     void Start()
@@ -50,10 +51,11 @@ public class LaserController : MonoBehaviour
                 }
                 destroyEnemies = false;
             }
+            heatWave.BurstUpdate(currentHeat/maxHeatSeconds);
             currentHeat -= Time.deltaTime;
 		}
 
-        if(currentHeat <= 0)
+        if(currentHeat < 0)
 		{
             currentHeat = 0;
             overheat = false;
