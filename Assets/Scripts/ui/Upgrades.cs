@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using player;
 
 public class Upgrades : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Upgrades : MonoBehaviour
     public GameObject TurretL;
     public GameObject TurretR;
     public GameObject ShieldManager;
+
+    public LaserShooter laserShooter;
 
 
     public Score score;
@@ -19,6 +22,8 @@ public class Upgrades : MonoBehaviour
 
 
     public float AdditionalTurretDamage = 2.0f;
+
+    public float AdditionalLaserDamage = 15.0f;
 
     bool ShieldPurchased;
 
@@ -34,7 +39,14 @@ public class Upgrades : MonoBehaviour
 
         if(AutoTurret >= 2)
         {
-            return;
+            TurretL.GetComponent<AutoTurret>().UpgradeDamage(AdditionalTurretDamage);
+            TurretR.GetComponent<AutoTurret>().UpgradeDamage(AdditionalTurretDamage);
+
+            score.SpendScrap(BuyTurret.Cost);
+
+            BuyTurret.Cost += 10;
+
+            BuyTurret.UpdateToolTipText("Upgrade Auto Turret Damage");
         }
 
 
@@ -42,9 +54,11 @@ public class Upgrades : MonoBehaviour
         {
             TurretL.SetActive(true);
             AutoTurret = 1;
-            UpTurret.PrereqPurchased = true;
+            //UpTurret.PrereqPurchased = true;
 
-            BuyTurret.UpdateToolTipText("Add a second auto turret");
+            score.SpendScrap(BuyTurret.Cost);
+            BuyTurret.UpdateToolTipText("Add a Second Auto Turret");
+
 
         }
         else if(AutoTurret == 1)
@@ -52,24 +66,28 @@ public class Upgrades : MonoBehaviour
             TurretR.SetActive(true);
             AutoTurret = 2;
 
-            BuyTurret.FullyPurchased = true;
-            BuyTurret.UpdateToolTipText("Maximum turrets purchased");
+            score.SpendScrap(BuyTurret.Cost);
+
+            //BuyTurret.FullyPurchased = true;
+
+            BuyTurret.Cost = 40;
+
+            BuyTurret.UpdateToolTipText("Upgrade Auto Turret Damage");
 
         }
 
-        score.SpendScrap(BuyTurret.Cost);
+       
 
 
     }
 
     public void UpgradeTurrets()
     {
-        TurretL.GetComponent<AutoTurret>().UpgradeDamage(AdditionalTurretDamage);
-        TurretR.GetComponent<AutoTurret>().UpgradeDamage(AdditionalTurretDamage);
+        laserShooter.laserDamage += AdditionalLaserDamage;
 
         score.SpendScrap(UpTurret.Cost);
 
-        UpTurret.Cost += 10;
+        UpTurret.Cost += 30;
 
         UpTurret.UpdateToolTipText(UpTurret.HoverText);
 

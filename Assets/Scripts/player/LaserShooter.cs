@@ -20,6 +20,10 @@ namespace player
         private LineRenderer lineRenderer;
         // public Transform DebugHitPosition;
 
+        public float laserDamage = 100;
+
+
+
         // Start is called before the first frame update
         void Start()
         {
@@ -62,7 +66,7 @@ namespace player
                 var hitableEnemy = hitInfo.collider.gameObject.GetComponent<HitableEnemy>();
                 if (hitableEnemy != null)
                 {
-                    hitableEnemy.takeDamage(100 * Time.deltaTime);
+                    hitableEnemy.takeDamage(laserDamage * Time.deltaTime);
                 }
 
                 // debugHitPosition.position = hitInfo.point;

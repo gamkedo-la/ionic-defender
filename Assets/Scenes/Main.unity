@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -305,7 +305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -44.2}
+  m_AnchoredPosition: {x: 250, y: -44.2}
   m_SizeDelta: {x: 30, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &106275096
@@ -1627,6 +1627,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4638230339878458994}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &571079414 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4638230338920224819, guid: fbefba2f112adb343b4bba4b4c6a2141,
+    type: 3}
+  m_PrefabInstance: {fileID: 4638230339878458994}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571079412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3210e24b0b72224468a194189defd06b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &571079418
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2447,7 +2459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -193, y: -44.2}
+  m_AnchoredPosition: {x: -250, y: -44.2}
   m_SizeDelta: {x: 60, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &849557264
@@ -3546,7 +3558,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Upgrade Turret Damage
+  m_Text: Upgrade Laser Damage
 --- !u!222 &1106810319
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4130,7 +4142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 60}
+  m_AnchoredPosition: {x: 0, y: 26}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1326777846
@@ -4549,7 +4561,7 @@ MonoBehaviour:
   FullyPurchased: 0
   Cost: 80
   score: {fileID: 770963696}
-  HoverText: Purchase a defensive shield
+  HoverText: Purchase a Defensive Shield
   tooltip: {fileID: 404980797}
   TTText: {fileID: 1467696290}
 --- !u!114 &1580079536
@@ -5374,11 +5386,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb18e2fca248acd48a498dddce652305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrereqPurchased: 0
+  PrereqPurchased: 1
   FullyPurchased: 0
-  Cost: 50
+  Cost: 120
   score: {fileID: 770963696}
-  HoverText: Upgrade auto turret damage
+  HoverText: Upgrade Main Laser Damage
   tooltip: {fileID: 920594271}
   TTText: {fileID: 301461511}
 --- !u!114 &1922174040
@@ -5573,7 +5585,7 @@ MonoBehaviour:
   FullyPurchased: 0
   Cost: 100
   score: {fileID: 770963696}
-  HoverText: Purchase an automated turret
+  HoverText: Purchase an Automated Turret
   tooltip: {fileID: 1603750774}
   TTText: {fileID: 733209697}
 --- !u!114 &1964944856
@@ -6291,7 +6303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -35}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2105235407
@@ -6309,11 +6321,13 @@ MonoBehaviour:
   TurretL: {fileID: 1681432322}
   TurretR: {fileID: 880213368}
   ShieldManager: {fileID: 903542526}
+  laserShooter: {fileID: 571079414}
   score: {fileID: 770963696}
   BuyTurret: {fileID: 1964944855}
   UpTurret: {fileID: 1922174039}
   ShieldButtonManager: {fileID: 1580079535}
   AdditionalTurretDamage: 2
+  AdditionalLaserDamage: 15
 --- !u!1001 &4638230339878458994
 PrefabInstance:
   m_ObjectHideFlags: 0
