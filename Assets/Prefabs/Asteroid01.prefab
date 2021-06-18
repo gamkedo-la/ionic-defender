@@ -57,6 +57,8 @@ MonoBehaviour:
     type: 3}
   explosionParticles: {fileID: 290809905798184283, guid: dee817d7504c0cf47a3e89cf169c7f8f,
     type: 3}
+  ES: {fileID: 0}
+  maxHealth: 0
 --- !u!58 &303914084577019367
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -70,9 +72,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.102604605, y: -0.009754773}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.705426
 --- !u!114 &4855309487178295109
 MonoBehaviour:
   m_ObjectHideFlags: 0

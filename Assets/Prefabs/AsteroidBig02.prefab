@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2495399182077126050}
   - component: {fileID: 1769977951958122551}
   - component: {fileID: 7347427265148012348}
+  - component: {fileID: 4428485511593071327}
   m_Layer: 10
   m_Name: AsteroidBig02
   m_TagString: Enemy
@@ -57,6 +58,8 @@ MonoBehaviour:
     type: 3}
   explosionParticles: {fileID: 290809905798184283, guid: dee817d7504c0cf47a3e89cf169c7f8f,
     type: 3}
+  ES: {fileID: 0}
+  maxHealth: 0
 --- !u!58 &7347427265148012288
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -64,7 +67,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7347427265148012290}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -121,6 +124,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 0.5
+--- !u!70 &4428485511593071327
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347427265148012290}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.025434626, y: 0.097288065}
+  m_Size: {x: 2.2295594, y: 2.8427465}
+  m_Direction: 0
 --- !u!1001 &5718211219014798970
 PrefabInstance:
   m_ObjectHideFlags: 0
