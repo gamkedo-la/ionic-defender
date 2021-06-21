@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 120
-  Damage: 1
+  Damage: 2
   Scrap: 40
   ScrapDecayRate: 1
   score: {fileID: 0}
