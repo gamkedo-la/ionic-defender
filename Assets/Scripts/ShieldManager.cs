@@ -43,6 +43,7 @@ public class ShieldManager : MonoBehaviour
     {
         shield.gameObject.SetActive(false);
         shieldDown = true;
+        RespawnTime = RTreset;
 
     }
 

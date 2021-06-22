@@ -37,10 +37,6 @@ public class Settlement : MonoBehaviour
 
                     TakeDamage(hitableEnemy.Damage);
                 }
-                else
-                {
-                    shield.shield.TakeDamage(hitableEnemy.Damage);
-                }
             }
         }
     }

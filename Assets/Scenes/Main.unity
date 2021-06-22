@@ -1840,7 +1840,7 @@ GameObject:
   - component: {fileID: 589019524}
   - component: {fileID: 589019526}
   - component: {fileID: 589019525}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6008,7 +6008,7 @@ GameObject:
   - component: {fileID: 2087358519}
   - component: {fileID: 2087358517}
   - component: {fileID: 2087358518}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shield
   m_TagString: Shield
   m_Icon: {fileID: 0}
@@ -6027,11 +6027,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b1337b1e4c3ea43b112c1c7cbab330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
-  MaxHP: 100
+  HP: 50
+  MaxHP: 50
   RegenRate: 2
   manager: {fileID: 903542527}
-  DamagePerSecond: 1
+  DamagePerHit: 100
 --- !u!70 &2087358518
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6057,7 +6057,7 @@ Transform:
   m_GameObject: {fileID: 2087358516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 589019524}
   m_Father: {fileID: 903542528}
