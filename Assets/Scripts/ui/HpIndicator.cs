@@ -10,6 +10,7 @@ public class HpIndicator : MonoBehaviour
     public GameObject[] playerObjectsToRemoveWhenDying;
 
     public Slider Fill;
+    public GameObject TargetVisualizer;
 
     public float CurrentHP;
     public float TargetHP;
@@ -41,6 +42,9 @@ public class HpIndicator : MonoBehaviour
 
             Fill.value = CurrentHP;
         }
+        Vector3 scale = TargetVisualizer.transform.localScale;
+        scale.y = TargetHP / Fill.maxValue;
+        TargetVisualizer.transform.localScale = scale;
 
         if(CurrentHP <= 0 && gameOverDialog != null)
         {
@@ -61,7 +65,6 @@ public class HpIndicator : MonoBehaviour
         {
             TargetHP = 0;
         }
-
     }
 
     public void SetMax(float Max, bool reset)
@@ -85,7 +88,6 @@ public class HpIndicator : MonoBehaviour
 
         CurrentHP += BonusHP;
         TargetHP = CurrentHP;
-
     }
 
 
