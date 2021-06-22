@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,7 +44,7 @@ public class HpIndicator : MonoBehaviour
             Fill.value = CurrentHP;
         }
         Vector3 scale = TargetVisualizer.transform.localScale;
-        scale.y = TargetHP / Fill.maxValue;
+        scale.y = Math.Max(0,TargetHP / Fill.maxValue);
         TargetVisualizer.transform.localScale = scale;
 
         if(CurrentHP <= 0 && gameOverDialog != null)
@@ -87,6 +88,8 @@ public class HpIndicator : MonoBehaviour
     {
 
         CurrentHP += BonusHP;
+        if (CurrentHP > Fill.maxValue)
+            CurrentHP = Fill.maxValue;
         TargetHP = CurrentHP;
     }
 
