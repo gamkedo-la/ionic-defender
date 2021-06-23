@@ -43,9 +43,13 @@ public class HpIndicator : MonoBehaviour
 
             Fill.value = CurrentHP;
         }
-        Vector3 scale = TargetVisualizer.transform.localScale;
-        scale.y = Math.Max(0,TargetHP / Fill.maxValue);
-        TargetVisualizer.transform.localScale = scale;
+
+        if (TargetVisualizer != null)
+        {
+            Vector3 scale = TargetVisualizer.transform.localScale;
+            scale.y = Math.Max(0,TargetHP / Fill.maxValue);
+            TargetVisualizer.transform.localScale = scale;
+        }
 
         if(CurrentHP <= 0 && gameOverDialog != null)
         {
