@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TurretLaser heat
+  m_Shader: {fileID: -6465566751694194690, guid: 48627bb4b1d679d40a52eb3057e96621,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Vector1_C0AD59A4: 5
+    - Vector1_C309F019: 30
+    - Vector1_DC1B14CA: -4.39
+    m_Colors:
+    - Color_36CFAF9: {r: 0.72300005, g: 0.54556036, b: 0.17062801, a: 0.62352943}
+    - Vector2_2D67884E: {r: -1, g: 0, b: 0, a: 0}

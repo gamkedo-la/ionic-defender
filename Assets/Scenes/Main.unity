@@ -6913,6 +6913,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
       propertyPath: heatSlider
       value: 
       objectReference: {fileID: 106275097}
@@ -6926,6 +6931,16 @@ PrefabInstance:
       propertyPath: DebugTarget
       value: 
       objectReference: {fileID: 1547879222}
+    - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: laserHeated
+      value: 
+      objectReference: {fileID: 2100000, guid: ef48ac40ebe8e2c4ca299292c544e05f, type: 2}
+    - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: laserDefault
+      value: 
+      objectReference: {fileID: 2100000, guid: 26fb4c16635f2fb4fa98f050cbd495a5, type: 2}
     - target: {fileID: 4638230338360358993, guid: fbefba2f112adb343b4bba4b4c6a2141,
         type: 3}
       propertyPath: maxHeatSeconds

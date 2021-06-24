@@ -26,6 +26,9 @@ public class LaserController : MonoBehaviour
     public Slider heatSlider;
     public PulseBurst heatWave;
 
+    public Material laserDefault;
+    public Material laserHeated;
+
     private void Awake()
     {
         OnLaserStart += () => HandleLaserShootingToggle(true);
@@ -50,9 +53,15 @@ public class LaserController : MonoBehaviour
 	{
         ProcessShootingInput();
 
-        heatSlider.value = currentHeat / maxHeatSeconds * 100;
+        float heatSeconds = currentHeat / maxHeatSeconds;
+        heatSlider.value = heatSeconds * 100;
 
-		if(currentHeat >= maxHeatSeconds)
+        LineRenderer laserEffect = laser.GetComponent<LineRenderer>();
+
+        laserEffect.material.Lerp(laserDefault, laserHeated,Mathf.SmoothStep(0.0f, Mathf.SmoothStep(0.0f, 1.0f,heatSeconds), heatSeconds));
+            
+
+        if(currentHeat >= maxHeatSeconds)
 		{
             overheat = true;
             destroyEnemies = true;
@@ -75,7 +84,7 @@ public class LaserController : MonoBehaviour
                 }
                 destroyEnemies = false;
             }
-            heatWave.BurstUpdate(currentHeat/maxHeatSeconds);
+            heatWave.BurstUpdate(heatSeconds);
             OnPulseWaveActivated?.Invoke();
             currentHeat -= Time.deltaTime;
 		}
