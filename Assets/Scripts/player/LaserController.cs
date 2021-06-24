@@ -9,6 +9,7 @@ public class LaserController : MonoBehaviour
 {
     public static Action OnLaserStart;
     public static Action OnLaserStop;
+    public static Action OnPulseWaveActivated;
     public LaserShooter laser;
 
     public Transform DebugTarget;
@@ -28,6 +29,7 @@ public class LaserController : MonoBehaviour
     {
         OnLaserStart += () => HandleLaserShootingToggle(true);
         OnLaserStop += () => HandleLaserShootingToggle(false);
+        OnPulseWaveActivated += HandlePulseWaveActivation;
     }
 
     private void ProcessShootingInput()
@@ -73,7 +75,7 @@ public class LaserController : MonoBehaviour
                 destroyEnemies = false;
             }
             heatWave.BurstUpdate(currentHeat/maxHeatSeconds);
-            SoundFXManager.PlayOneShot(SoundFxKey.PulseWave);
+            OnPulseWaveActivated?.Invoke();
             currentHeat -= Time.deltaTime;
 		}
 
@@ -113,5 +115,10 @@ public class LaserController : MonoBehaviour
     private void HandleLaserShootingToggle(bool isOn)
     {
         isShooting = isOn;
+    }
+
+    private void HandlePulseWaveActivation()
+    {
+        SoundFXManager.PlayOneShot(SoundFxKey.PulseWave);
     }
 }
