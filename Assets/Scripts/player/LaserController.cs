@@ -11,6 +11,7 @@ public class LaserController : MonoBehaviour
     public static Action OnLaserStop;
     public static Action OnPulseWaveActivated;
     public LaserShooter laser;
+    public GameObject movingHead;
 
     public Transform DebugTarget;
 
@@ -88,17 +89,20 @@ public class LaserController : MonoBehaviour
 
 	private void FixedUpdate()
     {
+        var mousePosition = Input.mousePosition;
+        // some positive value
+        mousePosition.z = 3;
+        Vector3 screenToWorldPoint = Camera.main.ScreenToWorldPoint(mousePosition);
+        // DebugTarget.position = screenToWorldPoint;
+
+        UpdateLaserHeadRotation(screenToWorldPoint);
+        
         if (Input.GetMouseButton(0) && !overheat)
         {
             // Heat increase
             currentHeat += Time.fixedDeltaTime;
 
-            var mousePosition = Input.mousePosition;
-            // some positive value
-             mousePosition.z = 3;
-            Vector3 screenToWorldPoint = Camera.main.ScreenToWorldPoint(mousePosition);
-            // DebugTarget.position = screenToWorldPoint;
-            
+
             laser.ShootLaser(screenToWorldPoint);
         }
         else
@@ -110,6 +114,14 @@ public class LaserController : MonoBehaviour
 
             laser.StopLaser();
         }
+    }
+    
+    private void UpdateLaserHeadRotation(Vector2 destination)
+    {
+        Vector2 newDirection = destination - (Vector2)movingHead.transform.position;
+        var temp = Quaternion.LookRotation(newDirection).eulerAngles;
+        temp.x += 90;
+        movingHead.transform.rotation = Quaternion.Euler(temp);
     }
 
     private void HandleLaserShootingToggle(bool isOn)
