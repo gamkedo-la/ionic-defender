@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SoundFxKey { Explosion, LoopingLaser}
+public enum SoundFxKey { Explosion, LoopingLaser, PulseWave}
 public class SoundFXManager : MonoBehaviour
 {
     [Header("OneShot Audio Sources")]
@@ -14,6 +14,7 @@ public class SoundFXManager : MonoBehaviour
     [Header("Audio Clips")]
     [SerializeField] private AudioClip explosionA;
     [SerializeField] private AudioClip loopingLaser;
+    [SerializeField] private AudioClip pulseWave;
     private static SoundFXManager Instance
     {
         get
@@ -38,6 +39,7 @@ public class SoundFXManager : MonoBehaviour
         SetupAudioLoopSources();
         SetupExplosionSounds();
         SetupLoopingLaserSound();
+        SetupPulseWaveSounds();
     }
 
     private void SetupAudioLoopSources()
@@ -52,6 +54,15 @@ public class SoundFXManager : MonoBehaviour
             explosionA,
         };
         soundFxToAudioClipMap.Add(SoundFxKey.Explosion, audioClipArray);
+    }
+
+    private void SetupPulseWaveSounds()
+    {
+        var audioClipArray = new AudioClip[]
+        {
+            pulseWave,
+        };
+        soundFxToAudioClipMap.Add(SoundFxKey.PulseWave, audioClipArray);
     }
 
     private void SetupLoopingLaserSound()

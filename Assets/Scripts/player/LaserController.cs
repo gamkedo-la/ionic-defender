@@ -29,7 +29,7 @@ public class LaserController : MonoBehaviour
         OnLaserStart += () => HandleLaserShootingToggle(true);
         OnLaserStop += () => HandleLaserShootingToggle(false);
     }
-    
+
     private void ProcessShootingInput()
     {
         if(false == isShooting && Input.GetMouseButtonDown(0))
@@ -73,6 +73,7 @@ public class LaserController : MonoBehaviour
                 destroyEnemies = false;
             }
             heatWave.BurstUpdate(currentHeat/maxHeatSeconds);
+            SoundFXManager.PlayOneShot(SoundFxKey.PulseWave);
             currentHeat -= Time.deltaTime;
 		}
 

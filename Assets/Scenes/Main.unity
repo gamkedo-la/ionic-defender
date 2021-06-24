@@ -4318,6 +4318,7 @@ MonoBehaviour:
   audioLoopOne: {fileID: 131638566}
   explosionA: {fileID: 8300000, guid: 07716242ef4504070b4b8bfccdec33ca, type: 3}
   loopingLaser: {fileID: 8300000, guid: 93472bdd8f6cb4db7a8b9ad38c8226a9, type: 3}
+  pulseWave: {fileID: 8300000, guid: 2774f33fe5f6546f58a6eeeda84b1e2b, type: 3}
 --- !u!4 &1321289869
 Transform:
   m_ObjectHideFlags: 0
