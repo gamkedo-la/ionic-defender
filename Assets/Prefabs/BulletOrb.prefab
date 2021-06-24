@@ -92,6 +92,9 @@ MonoBehaviour:
   ScrapText: {fileID: 2402234973123654432, guid: 7afac834b2bcc474685e3b707af6d4ac,
     type: 3}
   explosionParticles: {fileID: 0}
+  ES: {fileID: 0}
+  maxHealth: 0
+  hitEffect: {fileID: 0}
 --- !u!114 &2964923362574839887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +166,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3e41dd530f21d9e4d9eb8a19248928d8, type: 2}
+  - {fileID: 2100000, guid: 0a059ef22eb778b4ea55fc674631aae9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
