@@ -13,6 +13,8 @@ public class SoundFXManager : MonoBehaviour
 
     [Header("Audio Clips")]
     [SerializeField] private AudioClip explosionA;
+    [SerializeField] private AudioClip explosionB;
+    [SerializeField] private AudioClip explosionC;
     [SerializeField] private AudioClip loopingLaser;
     [SerializeField] private AudioClip pulseWave;
     [SerializeField] private AudioClip waveCleared;
@@ -57,7 +59,7 @@ public class SoundFXManager : MonoBehaviour
     {
         var audioClipArray = new AudioClip[]
         {
-            explosionA,
+            explosionA, explosionB, explosionC
         };
         soundFxToAudioClipMap.Add(SoundFxKey.Explosion, audioClipArray);
     }

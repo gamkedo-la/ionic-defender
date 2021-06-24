@@ -4369,7 +4369,9 @@ MonoBehaviour:
   mainAudioSource: {fileID: 1755124013}
   audioLoopOne: {fileID: 131638566}
   explosionA: {fileID: 8300000, guid: 07716242ef4504070b4b8bfccdec33ca, type: 3}
-  loopingLaser: {fileID: 8300000, guid: 4667426748e8443b5a802e169908a481, type: 3}
+  explosionB: {fileID: 8300000, guid: 3d81369dc168fd24d8398c0c73e1b6a7, type: 3}
+  explosionC: {fileID: 8300000, guid: 7e612371d07acfc46b7402ec4d86b687, type: 3}
+  loopingLaser: {fileID: 8300000, guid: 09e8a3c4e71504b18ab58461e542de43, type: 3}
   pulseWave: {fileID: 8300000, guid: 2774f33fe5f6546f58a6eeeda84b1e2b, type: 3}
   waveCleared: {fileID: 8300000, guid: 0abbb58d308034fee90ed8801a8e4ab0, type: 3}
   DEBUG_LOG: 0
