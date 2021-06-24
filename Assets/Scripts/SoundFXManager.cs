@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SoundFxKey { Explosion }
+public enum SoundFxKey { Explosion, LoopingLaser}
 public class SoundFXManager : MonoBehaviour
 {
-    [Header("Audio Sources")]
+    [Header("OneShot Audio Sources")]
     [SerializeField] private AudioSource mainAudioSource;
+
+    [Header("Loop Audio Sources")]
+    [SerializeField] private AudioSource audioLoopOne;
 
     [Header("Audio Clips")]
     [SerializeField] private AudioClip explosionA;
+    [SerializeField] private AudioClip loopingLaser;
     private static SoundFXManager Instance
     {
         get
@@ -27,19 +31,37 @@ public class SoundFXManager : MonoBehaviour
     // variable backing up field so that we can print an error message
     private static SoundFXManager _instance; 
     private Dictionary<SoundFxKey, AudioClip[]> soundFxToAudioClipMap = new Dictionary<SoundFxKey, AudioClip[]>();
+    private Dictionary<SoundFxKey, AudioSource> soundFxToLoopAudioClipMap = new Dictionary<SoundFxKey, AudioSource>();
     private void Awake()
     {
         _instance = this;
+        SetupAudioLoopSources();
         SetupExplosionSounds();
+        SetupLoopingLaserSound();
+    }
+
+    private void SetupAudioLoopSources()
+    {
+        soundFxToLoopAudioClipMap.Add(SoundFxKey.LoopingLaser, audioLoopOne);
     }
 
     private void SetupExplosionSounds()
     {
-        var explosionsArray = new AudioClip[]
+        var audioClipArray = new AudioClip[]
         {
             explosionA,
         };
-        soundFxToAudioClipMap.Add(SoundFxKey.Explosion, explosionsArray);
+        soundFxToAudioClipMap.Add(SoundFxKey.Explosion, audioClipArray);
+    }
+
+    private void SetupLoopingLaserSound()
+    {
+        var audioClipArray = new AudioClip[]
+        {
+            loopingLaser,
+        };
+
+        soundFxToAudioClipMap.Add(SoundFxKey.LoopingLaser, audioClipArray);
     }
 
     public static void PlayOneShot(SoundFxKey soundFxKey)
@@ -50,6 +72,44 @@ public class SoundFXManager : MonoBehaviour
         }
 
         Instance.mainAudioSource.PlayOneShot(clip);
+    }
+
+    public static void StartLoopSound(SoundFxKey soundFxKey)
+    {
+        Debug.Log("LoopSound: Start");
+        if(false == TryGetRandomClip(soundFxKey, out AudioClip clip))
+        {
+            return;
+        }
+
+        if(false == TryGetLoopAudioSource(soundFxKey, out AudioSource audioSource))
+        {
+            return;
+        }
+
+        if(false == audioSource.isPlaying)
+        {
+            Debug.Log("IsShooting: Starting looping sound");
+            audioSource.clip = clip;
+            audioSource.time = 0; // resets playback position to the start
+            audioSource.Play();
+        }
+    }
+
+    public static void StopLoopSound(SoundFxKey soundFxKey)
+    {
+        Debug.Log("LoopSound: Stop");
+
+        if(false == TryGetLoopAudioSource(soundFxKey, out AudioSource audioSource))
+        {
+            return;
+        }
+
+        if(audioSource.isPlaying)
+        {
+            Debug.Log("IsShooting: Stopping Looping sound");
+            audioSource.Pause();
+        }
     }
 
     private static bool TryGetRandomClip(SoundFxKey soundFxKey, out AudioClip clip)
@@ -69,6 +129,19 @@ public class SoundFXManager : MonoBehaviour
         }
 
         clip = clipArray[Random.Range(0, clipArray.Length)];
+        return true;
+    }
+
+    private static bool TryGetLoopAudioSource(SoundFxKey soundFxKey, out AudioSource audioSource)
+    {
+        audioSource = null;
+        if(false == Instance.soundFxToLoopAudioClipMap.ContainsKey(soundFxKey))
+        {
+            Debug.LogError($"no audio source found for sound fx key [{soundFxKey}] on gameobject [{Instance.gameObject.name}].");
+            return false;
+        }
+
+        audioSource = Instance.soundFxToLoopAudioClipMap[soundFxKey];
         return true;
     }
 

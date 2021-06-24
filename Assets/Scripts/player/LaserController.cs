@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using player;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class LaserController : MonoBehaviour
 {
+    public static Action OnLaserStart;
+    public static Action OnLaserStop;
     public LaserShooter laser;
 
     public Transform DebugTarget;
@@ -16,18 +19,34 @@ public class LaserController : MonoBehaviour
     private bool overheat = false;
     public float dampening;
     private bool destroyEnemies = false;
+    private bool isShooting = false;
 
     public Slider heatSlider;
     public PulseBurst heatWave;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        OnLaserStart += () => HandleLaserShootingToggle(true);
+        OnLaserStop += () => HandleLaserShootingToggle(false);
+    }
+    
+    private void ProcessShootingInput()
+    {
+        if(false == isShooting && Input.GetMouseButtonDown(0))
+        {
+            OnLaserStart?.Invoke();
+        }
+
+        if(isShooting && Input.GetMouseButtonUp(0))
+        {
+            OnLaserStop?.Invoke();
+        }
     }
 
 	private void Update()
 	{
+        ProcessShootingInput();
+
         heatSlider.value = currentHeat / maxHeatSeconds * 100;
 
 		if(currentHeat >= maxHeatSeconds)
@@ -38,6 +57,8 @@ public class LaserController : MonoBehaviour
 
         if(overheat)
 		{
+            OnLaserStop?.Invoke();
+
             if (destroyEnemies)
             {
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -62,7 +83,7 @@ public class LaserController : MonoBehaviour
         }
 	}
 
-	void FixedUpdate()
+	private void FixedUpdate()
     {
         if (Input.GetMouseButton(0) && !overheat)
         {
@@ -83,8 +104,13 @@ public class LaserController : MonoBehaviour
 			{
                 currentHeat -= Time.fixedDeltaTime * dampening;
             }
+
             laser.StopLaser();
         }
-      
+    }
+
+    private void HandleLaserShootingToggle(bool isOn)
+    {
+        isShooting = isOn;
     }
 }
