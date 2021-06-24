@@ -16,6 +16,10 @@ public class SoundFXManager : MonoBehaviour
     [SerializeField] private AudioClip loopingLaser;
     [SerializeField] private AudioClip pulseWave;
     [SerializeField] private AudioClip waveCleared;
+
+    [Header("Debug Switch")]
+    [SerializeField] private bool DEBUG_LOG = false;
+
     private static SoundFXManager Instance
     {
         get
@@ -99,7 +103,7 @@ public class SoundFXManager : MonoBehaviour
 
     public static void StartLoopSound(SoundFxKey soundFxKey)
     {
-        Debug.Log("LoopSound: Start");
+        if(Instance.DEBUG_LOG) Debug.Log("LoopSound: Start");
         if(false == TryGetRandomClip(soundFxKey, out AudioClip clip))
         {
             return;
@@ -112,7 +116,7 @@ public class SoundFXManager : MonoBehaviour
 
         if(false == audioSource.isPlaying)
         {
-            Debug.Log("IsShooting: Starting looping sound");
+            if(Instance.DEBUG_LOG) Debug.Log("IsShooting: Starting looping sound");
             audioSource.clip = clip;
             audioSource.time = 0; // resets playback position to the start
             audioSource.Play();
@@ -121,7 +125,7 @@ public class SoundFXManager : MonoBehaviour
 
     public static void StopLoopSound(SoundFxKey soundFxKey)
     {
-        Debug.Log("LoopSound: Stop");
+        if(Instance.DEBUG_LOG) Debug.Log("LoopSound: Stop");
 
         if(false == TryGetLoopAudioSource(soundFxKey, out AudioSource audioSource))
         {
@@ -130,7 +134,7 @@ public class SoundFXManager : MonoBehaviour
 
         if(audioSource.isPlaying)
         {
-            Debug.Log("IsShooting: Stopping Looping sound");
+            if(Instance.DEBUG_LOG) Debug.Log("IsShooting: Stopping Looping sound");
             audioSource.Pause();
         }
     }
