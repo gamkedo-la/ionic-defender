@@ -89,6 +89,7 @@ public class EnemySpawn : MonoBehaviour
             timer = -TimeBetweenWaves;
 
             screenText.DisplayText("Wave " + (waveCount -1) + " Cleared", TimeBetweenWaves);
+            SoundFXManager.PlayOneShot(SoundFxKey.WaveCleared);
 
             PlayerHP.NextWave(10); // Edit this number to change bonus HP given per wave
 
