@@ -90,6 +90,7 @@ public class HitableEnemy : MonoBehaviour
             T.GetComponent<TextMesh>().text = Scrap.ToString();
         }
 
+        SoundFXManager.PlayOneShot(SoundFxKey.Explosion);
         Destroy(this.gameObject);
     }
 }
