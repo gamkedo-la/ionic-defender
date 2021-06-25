@@ -26,12 +26,15 @@ public class GameController : MonoBehaviour
     }
 
     [Header("Configuration")]
+    [SerializeField] private GameObject uiMenu;
+    [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] GameIntro gameIntro;
+    [SerializeField] private GameObject uiHUD;
+    [SerializeField] private GameIntro gameIntro;
+
 
     [Header("Debug")]
     [SerializeField] private bool skipMainMenu;
-
 
     private bool gameStarted = false;
     private bool gamePaused = false;
@@ -40,9 +43,20 @@ public class GameController : MonoBehaviour
     {
         instance = this;
         OnGamePausedChanged += HandleGamePaused;
+        OnGameStartedChanged += HandleGameStarted;
+
         if(false == skipMainMenu)
         {
             gameIntro.SetupGameIntro();
+            uiMenu.SetActive(true);
+            mainMenu.SetActive(true);
+            uiHUD.SetActive(false);
+
+        }
+        else
+        {
+            uiMenu.SetActive(false);
+            uiHUD.SetActive(true);
         }
     }
 
@@ -59,7 +73,6 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown("escape"))
@@ -70,6 +83,15 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             GameStarted = !GameStarted;
+        }
+    }
+
+    public void HandleGameStarted(bool gameStartedState)
+    {
+        if(gameStartedState)
+        {
+            uiMenu.SetActive(false);
+            uiHUD.SetActive(true);
         }
     }
 

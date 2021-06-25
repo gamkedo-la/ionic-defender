@@ -14,9 +14,18 @@ public class GameIntro : MonoBehaviour
     [SerializeField] Transform gameCameraPosition;
     [SerializeField] float gameOrthographicSize;
 
+
+    // switching from non orthographic to orthographic was not smooth
+    // hence commenting this code out
+    //[SerializeField] bool introIsOrthographic;
+    //[SerializeField] bool gameIsOrthographic;
+
     public void SetupGameIntro()
     {
         this.gameObject.SetActive(true);
+        // switching from non orthographic to orthographic was not smooth
+        // hence commenting this code out
+        //cameraReference.orthographic = introIsOrthographic;
         cameraTransform.position = introCameraPosition.position;
         cameraTransform.rotation = introCameraPosition.rotation;
         cameraReference.orthographicSize = introOrthographicSize;
@@ -45,6 +54,10 @@ public class GameIntro : MonoBehaviour
         var sizeStartAt = introOrthographicSize;
         var sizeEndAt = gameOrthographicSize;
 
+        // switching from non orthographic to orthographic was not smooth
+        // hence commenting this code out
+        //cameraReference.orthographic = gameIsOrthographic;
+
         while(remaining > 0)
         {
             yield return new WaitForEndOfFrame();
@@ -54,5 +67,6 @@ public class GameIntro : MonoBehaviour
             cameraTransform.rotation = Quaternion.Lerp(rotStartAt, rotEndAt, 1 - remaining);
             cameraReference.orthographicSize = Mathf.Lerp(sizeStartAt, sizeEndAt, 1 - remaining);
         }
+
     }
 }

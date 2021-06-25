@@ -5,15 +5,29 @@ using UnityEngine;
 public class CameraBreathingWobble : MonoBehaviour
 {
     Quaternion origRot;
-    // Start is called before the first frame update
+
+    private bool doEffect = true;
+    private void Awake()
+    {
+        GameController.OnGameStartedChanged +=  HandleGameStarted;
+    }
     void Start()
     {
         origRot = transform.rotation;
     }
 
-    // Update is called once per frame
+    private void HandleGameStarted(bool gameStarted)
+    {
+        doEffect = true;
+    }
+
     void Update()
     {
+        if(false == doEffect)
+        {
+            return;
+        }
+
         transform.rotation = origRot *
             Quaternion.AngleAxis(Mathf.Sin(Time.timeSinceLevelLoad*0.3f) * 1.5f, Vector3.up)
              *
