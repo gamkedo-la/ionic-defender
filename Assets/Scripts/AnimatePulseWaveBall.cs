@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class AnimatePulseWaveBall : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class AnimatePulseWaveBall : MonoBehaviour
     private void Awake()
     {
         LaserController.OnPulseWaveActivated += StartTrackingHeatChange;
+        ballTransform.position = deactivatedPosition.position;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(ShowBall());
     }
 
     private void StartTrackingHeatChange()
@@ -21,6 +28,23 @@ public class AnimatePulseWaveBall : MonoBehaviour
     private void StopTrackingHeatChange()
     {
         LaserController.OnHeatChanged -= HandleHeatChange;
+    }
+
+    private IEnumerator ShowBall()
+    {
+        float duration = 1.0f;
+        while(duration > 0.0f)
+        {
+            ballTransform.position = Vector3.Lerp(
+            activatedPosition.position,
+            deactivatedPosition.position,
+            duration);
+            yield return new WaitForEndOfFrame();
+            duration -= Time.deltaTime;
+        }
+
+
+        ballTransform.position = activatedPosition.position;
     }
 
     private void HandleHeatChange((float current, float max) eventData)

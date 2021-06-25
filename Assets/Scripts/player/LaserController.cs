@@ -46,6 +46,7 @@ public class LaserController : MonoBehaviour
         OnLaserStart += () => HandleLaserShootingToggle(true);
         OnLaserStop += () => HandleLaserShootingToggle(false);
         OnPulseWaveActivated += HandlePulseWaveActivation;
+        currentHeat = maxHeatSeconds -1;
     }
 
     private void ProcessShootingInput()
@@ -63,6 +64,11 @@ public class LaserController : MonoBehaviour
 
 	private void Update()
 	{
+        if(false == GameController.GameStarted || GameController.GamePaused)
+        {
+            return;
+        }
+
         ProcessShootingInput();
 
         float heatSeconds = currentHeat / maxHeatSeconds;
