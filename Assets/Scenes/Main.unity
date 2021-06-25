@@ -128,6 +128,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4638230339878458994}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &16375663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16375662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b75d3552d831b194caa35169c5bf3e6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballTransform: {fileID: 1100061944}
+  activatedPosition: {fileID: 485108108}
+  deactivatedPosition: {fileID: 70618244}
 --- !u!114 &16375667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +155,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88735dab16cf568479693ec0935e3c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &25846302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 25846303}
+  m_Layer: 8
+  m_Name: BallPositions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &25846303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25846302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 485108108}
+  - {fileID: 70618244}
+  m_Father: {fileID: 1787670050}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &47878368
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +329,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &70618243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 70618244}
+  m_Layer: 8
+  m_Name: deactivatedBallPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &70618244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70618243}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 25846303}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &106275094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,6 +1602,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: -1
+--- !u!1 &485108107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485108108}
+  m_Layer: 8
+  m_Name: activatedBallPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &485108108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485108107}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.985, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 25846303}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &489115029
 GameObject:
   m_ObjectHideFlags: 0
@@ -3795,6 +3902,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4638230339878458994}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1100061944 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1903856492781652786, guid: fbefba2f112adb343b4bba4b4c6a2141,
+    type: 3}
+  m_PrefabInstance: {fileID: 4638230339878458994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1106810316
 GameObject:
   m_ObjectHideFlags: 0
@@ -4559,7 +4672,7 @@ MonoBehaviour:
   loopingLaser: {fileID: 8300000, guid: 09e8a3c4e71504b18ab58461e542de43, type: 3}
   pulseWave: {fileID: 8300000, guid: 2774f33fe5f6546f58a6eeeda84b1e2b, type: 3}
   waveCleared: {fileID: 8300000, guid: 0abbb58d308034fee90ed8801a8e4ab0, type: 3}
-  DEBUG_LOG: 0
+  DEBUG_LOG: 1
 --- !u!4 &1321289869
 Transform:
   m_ObjectHideFlags: 0

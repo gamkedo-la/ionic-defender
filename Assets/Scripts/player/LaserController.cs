@@ -10,6 +10,7 @@ public class LaserController : MonoBehaviour
     public static Action OnLaserStart;
     public static Action OnLaserStop;
     public static Action OnPulseWaveActivated;
+    public static Action<(float current, float max)> OnHeatChanged;
     public LaserShooter laser;
     public GameObject movingHead;
 
@@ -17,7 +18,18 @@ public class LaserController : MonoBehaviour
 
     public float heatCoolDownSeconds;
     public float maxHeatSeconds;
-    private float currentHeat;
+    private float currentHeat
+    {
+        get => _currentHeat;
+        set
+        {
+            _currentHeat = value;
+            // if you don't want the OnHeatChanged event to fire
+            // set the _currentHeat value directly.
+            OnHeatChanged?.Invoke((_currentHeat, maxHeatSeconds));
+        }
+    }
+    private float _currentHeat;
     private bool overheat = false;
     public float dampening;
     private bool destroyEnemies = false;
