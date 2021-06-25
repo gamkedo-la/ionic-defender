@@ -1,28 +1,34 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameIntro : MonoBehaviour
 {
-    [SerializeField] Transform cameraTransform;
-    [SerializeField] Transform introCameraPosition;
-    [SerializeField] Transform gameCameraPosition;
-
+    [Header("References")]
     [SerializeField] Camera cameraReference;
+    [SerializeField] Transform cameraTransform;
+    [Header("Game Intro Positions")]
+    [SerializeField] Transform introCameraPosition;
     [SerializeField] float introOrthographicSize;
+
+    [Header("Game Started Positions")]
+    [SerializeField] Transform gameCameraPosition;
     [SerializeField] float gameOrthographicSize;
 
-
-    private void Awake()
+    public void SetupGameIntro()
     {
+        this.gameObject.SetActive(true);
         cameraTransform.position = introCameraPosition.position;
         cameraTransform.rotation = introCameraPosition.rotation;
         cameraReference.orthographicSize = introOrthographicSize;
+        GameController.OnGameStartedChanged += HandleGameStarted;
     }
 
-    private void Start()
+    private void HandleGameStarted(bool gameStartedState)
     {
-        StartCoroutine(MoveCamera(4f, 1f));
+        if(gameStartedState)
+        {
+            StartCoroutine(MoveCamera(0.25f, 1f));
+        }
     }
 
     private IEnumerator MoveCamera(float startDelay, float duration)

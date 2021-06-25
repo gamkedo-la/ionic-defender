@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
 
     [Header("Configuration")]
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] GameIntro gameIntro;
 
     [Header("Debug")]
     [SerializeField] private bool skipMainMenu;
@@ -39,6 +40,10 @@ public class GameController : MonoBehaviour
     {
         instance = this;
         OnGamePausedChanged += HandleGamePaused;
+        if(false == skipMainMenu)
+        {
+            gameIntro.SetupGameIntro();
+        }
     }
 
     private void Start()

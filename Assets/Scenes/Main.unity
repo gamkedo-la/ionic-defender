@@ -2378,7 +2378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 489115029}
-  skipMainMenu: 0
+  gameIntro: {fileID: 935034678}
+  skipMainMenu: 1
 --- !u!4 &770963694
 Transform:
   m_ObjectHideFlags: 0
@@ -3387,11 +3388,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2a90062d5681441bceed96d62d4e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraReference: {fileID: 963194227}
   cameraTransform: {fileID: 963194228}
   introCameraPosition: {fileID: 2008123301}
-  gameCameraPosition: {fileID: 1028759212}
-  cameraReference: {fileID: 963194227}
   introOrthographicSize: 1.2
+  gameCameraPosition: {fileID: 1028759212}
   gameOrthographicSize: 4
 --- !u!1 &963194225
 GameObject:
