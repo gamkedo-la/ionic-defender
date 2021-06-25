@@ -115,6 +115,11 @@ public class LaserController : MonoBehaviour
 
 	private void FixedUpdate()
     {
+        if(false == GameController.GameStarted || GameController.GamePaused)
+        {
+            return;
+        }
+
         var mousePosition = Input.mousePosition;
         // some positive value
         mousePosition.z = 3;
