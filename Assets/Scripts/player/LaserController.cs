@@ -65,12 +65,12 @@ public class LaserController : MonoBehaviour
 		{
             overheat = true;
             destroyEnemies = true;
+            OnLaserStop?.Invoke();
+            OnPulseWaveActivated?.Invoke();
         }
 
         if(overheat)
 		{
-            OnLaserStop?.Invoke();
-
             if (destroyEnemies)
             {
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -85,7 +85,6 @@ public class LaserController : MonoBehaviour
                 destroyEnemies = false;
             }
             heatWave.BurstUpdate(heatSeconds);
-            OnPulseWaveActivated?.Invoke();
             currentHeat -= Time.deltaTime;
 		}
 
