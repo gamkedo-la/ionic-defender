@@ -118,7 +118,7 @@ public class SoundFXManager : MonoBehaviour
 
         if(false == audioSource.isPlaying)
         {
-            if(Instance.DEBUG_LOG) Debug.Log("IsShooting: Starting looping sound");
+            if(Instance.DEBUG_LOG) Debug.Log("Starting looping sound");
             audioSource.clip = clip;
             audioSource.time = 0; // resets playback position to the start
             audioSource.Play();
@@ -136,7 +136,7 @@ public class SoundFXManager : MonoBehaviour
 
         if(audioSource.isPlaying)
         {
-            if(Instance.DEBUG_LOG) Debug.Log("IsShooting: Stopping Looping sound");
+            if(Instance.DEBUG_LOG) Debug.Log("Stopping Looping sound");
             audioSource.Pause();
         }
     }
