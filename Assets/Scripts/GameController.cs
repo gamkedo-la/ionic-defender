@@ -1,13 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System;
 public class GameController : MonoBehaviour
 {
-    public GameObject pauseMenu;
+    public static Action<bool> OnGameStartedChanged;
+    public static Action<bool> OnGamePausedChanged;
+    [SerializeField] private GameObject pauseMenu;
+    public bool GameStarted
+    {
+        get => gameStarted;
+        set
+        {
+            gameStarted = value;
+            OnGameStartedChanged?.Invoke(gameStarted);
+        }
+    }
+    public bool GamePaused
+    {
+        get => gamePaused;
+        set
+        {
+          gamePaused = value;
+          OnGamePausedChanged?.Invoke(gamePaused);
+        }
+    }
 
+    private bool gameStarted = false;
     private bool gamePaused = false;
+
+    private void Awake()
+    {
+        OnGamePausedChanged += HandleGamePaused;
+    }
 
     public void Restart()
     {
@@ -19,10 +43,13 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown("escape"))
         {
-            gamePaused = !gamePaused;
+            GamePaused = !GamePaused;
         }
+    }
 
-        if(gamePaused)
+    private void HandleGamePaused(bool isPaused)
+    {
+        if(isPaused)
         {
             Time.timeScale = 0;
             pauseMenu.SetActive(true);
