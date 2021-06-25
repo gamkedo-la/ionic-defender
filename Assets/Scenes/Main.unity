@@ -2378,6 +2378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 489115029}
+  skipMainMenu: 0
 --- !u!4 &770963694
 Transform:
   m_ObjectHideFlags: 0

@@ -3,34 +3,50 @@ using UnityEngine.SceneManagement;
 using System;
 public class GameController : MonoBehaviour
 {
+    private static GameController instance;
     public static Action<bool> OnGameStartedChanged;
     public static Action<bool> OnGamePausedChanged;
+    public static bool GameStarted
+    {
+        get => instance.gameStarted;
+        set
+        {
+            instance.gameStarted = value;
+            OnGameStartedChanged?.Invoke(instance.gameStarted);
+        }
+    }
+    public static bool GamePaused
+    {
+        get => instance.gamePaused;
+        set
+        {
+          instance.gamePaused = value;
+          OnGamePausedChanged?.Invoke(instance.gamePaused);
+        }
+    }
+
+    [Header("Configuration")]
     [SerializeField] private GameObject pauseMenu;
-    public bool GameStarted
-    {
-        get => gameStarted;
-        set
-        {
-            gameStarted = value;
-            OnGameStartedChanged?.Invoke(gameStarted);
-        }
-    }
-    public bool GamePaused
-    {
-        get => gamePaused;
-        set
-        {
-          gamePaused = value;
-          OnGamePausedChanged?.Invoke(gamePaused);
-        }
-    }
+
+    [Header("Debug")]
+    [SerializeField] private bool skipMainMenu;
+
 
     private bool gameStarted = false;
     private bool gamePaused = false;
 
     private void Awake()
     {
+        instance = this;
         OnGamePausedChanged += HandleGamePaused;
+    }
+
+    private void Start()
+    {
+        if(skipMainMenu)
+        {
+            GameStarted = true;
+        }
     }
 
     public void Restart()
@@ -44,6 +60,11 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             GamePaused = !GamePaused;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            GameStarted = !GameStarted;
         }
     }
 

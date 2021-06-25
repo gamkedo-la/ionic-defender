@@ -34,12 +34,23 @@ public class EnemySpawn : MonoBehaviour
     [HideInInspector]
     public List<GameObject> ActiveEnemies = new List<GameObject>();
 
+    private bool ShouldDoEnemySpawnRoutine => GameController.GameStarted && false == GameController.GamePaused;
+
     void Start()
     {
         waveCountText.text = "Day " + waveCount;
     }
 
     void Update()
+    {
+        if(ShouldDoEnemySpawnRoutine)
+        {
+            DoEnemySpawnRoutine();
+        }
+        
+    } // End of Update
+
+    private void DoEnemySpawnRoutine()
     {
         timer += Time.deltaTime;
 
@@ -94,7 +105,7 @@ public class EnemySpawn : MonoBehaviour
             PlayerHP.NextWave(10); // Edit this number to change bonus HP given per wave
 
         } // Enf of if increase wave
-    } // End of Update
+    }
 
 
     public void EnemyDeath(GameObject E)
