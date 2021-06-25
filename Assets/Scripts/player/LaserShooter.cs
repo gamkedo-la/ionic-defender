@@ -9,7 +9,7 @@ namespace player
     [SelectionBase]
     public class LaserShooter : MonoBehaviour
     {
-        private Transform laserCenter;
+        public Transform laserCenter;
         public float laserOffset = 1;
 
         public Transform debugHitPosition;
@@ -27,7 +27,6 @@ namespace player
         // Start is called before the first frame update
         void Start()
         {
-            laserCenter = transform;
             lineRenderer = gameObject.GetComponent<LineRenderer>();
         }
 
@@ -45,7 +44,7 @@ namespace player
             // TODO limit angle
 
             Vector3 extendedDirection = new Vector3(direction.x, direction.y, direction.z);
-            extendedDirection.Scale(new Vector3(20, 20, 20));
+            extendedDirection.Scale(new Vector3(35, 35, 35));
             laserExtended = laserCenter.position + extendedDirection;
 
             // Instantiate(Resources.Load("Debug/MarkerUndirectional"), laserOrigin, Quaternion.identity);

@@ -1921,13 +1921,22 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.16870415
-        value: 0.5108696
+        time: 0.4241897
+        value: 0.49782336
         inSlope: -0
         outSlope: -0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.2906404
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.6027944
+        value: 0.49999997
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -6758,6 +6767,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096079324}
   m_CullTransparentMesh: 0
+--- !u!4 &2105130230 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5698331857772795692, guid: fbefba2f112adb343b4bba4b4c6a2141,
+    type: 3}
+  m_PrefabInstance: {fileID: 4638230339878458994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2105235405
 GameObject:
   m_ObjectHideFlags: 0
@@ -7003,8 +7018,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638230338920224819, guid: fbefba2f112adb343b4bba4b4c6a2141,
         type: 3}
+      propertyPath: laserCenter
+      value: 
+      objectReference: {fileID: 2105130230}
+    - target: {fileID: 4638230338920224819, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
       propertyPath: laserOffset
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4638230338920224819, guid: fbefba2f112adb343b4bba4b4c6a2141,
         type: 3}
@@ -7026,6 +7046,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 67b2e7868bac0d344b5d0132bc68ceb3, type: 2}
+    - target: {fileID: 5698331857772795692, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbefba2f112adb343b4bba4b4c6a2141, type: 3}
 --- !u!1001 &5048995733856584497
