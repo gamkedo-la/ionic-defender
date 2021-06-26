@@ -1233,6 +1233,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243507764}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &272597283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 272597284}
+  - component: {fileID: 272597286}
+  - component: {fileID: 272597285}
+  m_Layer: 5
+  m_Name: HomeDevTeamText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &272597284
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272597283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.7}
+  m_Children: []
+  m_Father: {fileID: 1683942843}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -51.71003, y: 25}
+  m_SizeDelta: {x: -103.41994, y: 30}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &272597285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272597283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.56298274, g: 0.9528302, b: 0.4809096, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 39
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Game made by members of HomeTeamGameDev.com Outpost group
+--- !u!222 &272597286
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272597283}
+  m_CullTransparentMesh: 0
 --- !u!1 &284887996
 GameObject:
   m_ObjectHideFlags: 0
@@ -5320,6 +5398,7 @@ GameObject:
   - component: {fileID: 1194208175}
   - component: {fileID: 1194208177}
   - component: {fileID: 1194208176}
+  - component: {fileID: 1194208178}
   m_Layer: 5
   m_Name: Credits Text
   m_TagString: Untagged
@@ -5343,8 +5422,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 27.5}
+  m_SizeDelta: {x: 0, y: -55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1194208176
 MonoBehaviour:
@@ -5378,24 +5457,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u2022 Grygoriy Kulesko: Project lead, core gameplay, laser functionality,
-    camera improvements, ground asset, testing/debugging functionality, initial laser
-    visual, optimizations, assorted project organization to simplify collaboration,
-    difficulty tuning, raw sound samples, target hp display, UI styling, assorted
-    bug fixes\n\u2022 Filipe Dottori: Asteroid model, bacterion model, improved laser
-    visual, asteroid explosions, enemy spawn/wave system, heatwave functionality,
-    sky background, heat UI, change to universal render pipeline, heat glow, assorted
-    bug fixes, collision tuning, bacterion burning\n\u2022 Will McKay: Auto turrets,
-    bacterion functionality, bacterion orbs attack, asteroids motion and targeting,
-    settlement HP functionality and related UI, end of round bonus, scrap currency,
-    scrap reward popups, wave completion message, turret purchase and upgrade, upgrade
-    tool tips, shield powerup and related upgrade support, responsive UI scaling,
-    laser damage can be upgraded\n\u2022 Muhammed \"EyeForcz\" Durmusoglu: turret
-    tower and related models/texturing/rigging/rigging, laser ball\n\u2022 Chris
-    DeLeon: Voxel city skyscrapers, heatwave visual, game over screen, compiled credits\n\u2022
-    Rami Bukhari: Pause menu\n\u2022 tiago.dev: sound fx manager, game events, start
-    menu logic, game intro, programmatic animation, camera shake\n\nGame made by
-    members of HomeTeamGameDev.com Outpost group"
+  m_Text: CONTRIBUTORS TEXT SET IN CODE
 --- !u!222 &1194208177
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5404,6 +5466,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194208174}
   m_CullTransparentMesh: 0
+--- !u!114 &1194208178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194208174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0414e7cb5a376d4c8f136ec0ea3b66b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creditTextField: {fileID: 1194208176}
 --- !u!1 &1201509576
 GameObject:
   m_ObjectHideFlags: 0
@@ -7234,6 +7309,7 @@ RectTransform:
   m_Children:
   - {fileID: 2144759442}
   - {fileID: 1194208175}
+  - {fileID: 272597284}
   m_Father: {fileID: 2023838137}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
