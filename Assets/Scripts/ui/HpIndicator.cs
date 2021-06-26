@@ -12,11 +12,14 @@ public class HpIndicator : MonoBehaviour
 
     public Slider Fill;
     public GameObject TargetVisualizer;
+    private float lastHitTime;
 
     public float CurrentHP;
     public float TargetHP;
 
     public float DrainSpeed;
+    public float DrainSpeedIfHit;
+    public float DurationHigherDrainAfterHit;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +37,7 @@ public class HpIndicator : MonoBehaviour
 
         if (CurrentHP > TargetHP)
         {
-            CurrentHP -= (DrainSpeed * Time.deltaTime);
+            CurrentHP -= (GetDrain() * Time.deltaTime);
 
             if(CurrentHP < TargetHP)
             {
@@ -62,8 +65,21 @@ public class HpIndicator : MonoBehaviour
         }
     }
 
+    private float GetDrain()
+    {
+        if (Time.time - lastHitTime <= DurationHigherDrainAfterHit)
+        {
+            return DrainSpeedIfHit;
+        }
+        else
+        {
+            return DrainSpeed;
+        }
+    }
+
     public void TakeDamage(float Damage)
     {
+        lastHitTime = Time.time;
         TargetHP -= Damage;
 
         if(TargetHP <= 0)
