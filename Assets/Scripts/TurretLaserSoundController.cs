@@ -4,8 +4,8 @@ public class TurretLaserSoundController : MonoBehaviour
 {
     private void Start()
     {
-        LaserController.OnLaserStart += () => ToggleLaserSoundFx(true);
-        LaserController.OnLaserStop += () => ToggleLaserSoundFx(false);
+        LaserController.Instance.OnLaserStart += () => ToggleLaserSoundFx(true);
+        LaserController.Instance.OnLaserStop += () => ToggleLaserSoundFx(false);
     }
 
     private void ToggleLaserSoundFx(bool playSound)

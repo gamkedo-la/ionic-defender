@@ -3,25 +3,26 @@ using UnityEngine.SceneManagement;
 using System;
 public class GameController : MonoBehaviour
 {
-    private static GameController instance;
-    public static Action<bool> OnGameStartedChanged;
-    public static Action<bool> OnGamePausedChanged;
+    public static GameController Instance;
+    public Action<bool> OnGameStartedChanged;
+    public Action<bool> OnGamePausedChanged;
+    public Action OnPlayerDie;
     public static bool GameStarted
     {
-        get => instance.gameStarted;
+        get => Instance.gameStarted;
         set
         {
-            instance.gameStarted = value;
-            OnGameStartedChanged?.Invoke(instance.gameStarted);
+            Instance.gameStarted = value;
+            Instance.OnGameStartedChanged?.Invoke(Instance.gameStarted);
         }
     }
     public static bool GamePaused
     {
-        get => instance.gamePaused;
+        get => Instance.gamePaused;
         set
         {
-          instance.gamePaused = value;
-          OnGamePausedChanged?.Invoke(instance.gamePaused);
+          Instance.gamePaused = value;
+          Instance.OnGamePausedChanged?.Invoke(Instance.gamePaused);
         }
     }
 
@@ -29,6 +30,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject uiMenu;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject uiHUD;
     [SerializeField] private GameIntro gameIntro;
 
@@ -41,29 +43,33 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
-        //OnGamePausedChanged += HandleGamePaused;
-        OnGameStartedChanged += HandleGameStarted;
-
+        Instance = this;
+        
         if(false == skipMainMenu)
         {
             gameIntro.SetupGameIntro();
             uiMenu.SetActive(true);
             mainMenu.SetActive(true);
             uiHUD.SetActive(false);
-
         }
         else
         {
             uiMenu.SetActive(false);
             uiHUD.SetActive(true);
         }
-
-        OnGamePausedChanged += HandleGamePaused;
     }
 
     private void Start()
     {
+        OnGamePausedChanged += HandleGamePaused;
+        OnGameStartedChanged += HandleGameStarted;
+        OnPlayerDie += GameOver;
+
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+
         if(skipMainMenu)
         {
             GameStarted = true;
@@ -72,7 +78,15 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
+        gameStarted = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GameOver()
+    {
+        uiMenu.SetActive(true);
+        gameOverMenu.SetActive(true);
+        mainMenu.SetActive(false);
     }
 
     void Update()
@@ -96,7 +110,7 @@ public class GameController : MonoBehaviour
     private void HandleGamePaused(bool isPaused)
     {
         mainMenu.SetActive(false);
-        
+
         Debug.Log($"Setting GamePaused [{isPaused}]");
         if(isPaused)
         {

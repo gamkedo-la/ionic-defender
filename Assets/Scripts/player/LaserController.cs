@@ -7,10 +7,11 @@ using System;
 
 public class LaserController : MonoBehaviour
 {
-    public static Action OnLaserStart;
-    public static Action OnLaserStop;
-    public static Action OnPulseWaveActivated;
-    public static Action<(float current, float max)> OnHeatChanged;
+    public static LaserController Instance;
+    public Action OnLaserStart;
+    public Action OnLaserStop;
+    public Action OnPulseWaveActivated;
+    public Action<(float current, float max)> OnHeatChanged;
     public LaserShooter laser;
     public GameObject movingHead;
 
@@ -43,10 +44,15 @@ public class LaserController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+        currentHeat = maxHeatSeconds -1;
+    }
+
+    private void Start()
+    {
         OnLaserStart += () => HandleLaserShootingToggle(true);
         OnLaserStop += () => HandleLaserShootingToggle(false);
         OnPulseWaveActivated += HandlePulseWaveActivation;
-        currentHeat = maxHeatSeconds -1;
     }
 
     private void ProcessShootingInput()

@@ -20,15 +20,10 @@ public class HpIndicator : MonoBehaviour
     public float DrainSpeed;
     public float DrainSpeedIfHit;
     public float DurationHigherDrainAfterHit;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
+    private bool hasDied = false;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(Input.GetKeyDown(KeyCode.D)) {
             Debug.Log("instant death test");
@@ -54,10 +49,11 @@ public class HpIndicator : MonoBehaviour
             TargetVisualizer.transform.localScale = scale;
         }
 
-        if(CurrentHP <= 0 && gameOverDialog != null)
+        if(hasDied == false && CurrentHP <= 0 && gameOverDialog != null)
         {
+            hasDied = true;
             //Game Over
-            gameOverDialog.SetActive(true);
+            GameController.Instance.OnPlayerDie();
             for(int i=0;i< playerObjectsToRemoveWhenDying.Length;i++) {
                 playerObjectsToRemoveWhenDying[i].SetActive(false);
                 gameObject.SetActive(false);
@@ -92,8 +88,6 @@ public class HpIndicator : MonoBehaviour
     {
         Fill.maxValue = Max;
 
-        
-
         if (reset == true)
         {
             Fill.value = Max;
@@ -106,13 +100,12 @@ public class HpIndicator : MonoBehaviour
 
     public void NextWave(float BonusHP)
     {
-
         CurrentHP += BonusHP;
         if (CurrentHP > Fill.maxValue)
+        {
             CurrentHP = Fill.maxValue;
+        }
+
         TargetHP = CurrentHP;
     }
-
-
-
 }

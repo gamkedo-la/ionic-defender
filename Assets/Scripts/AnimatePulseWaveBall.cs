@@ -15,25 +15,25 @@ public class AnimatePulseWaveBall : MonoBehaviour
 
     private void Awake()
     {
-        LaserController.OnPulseWaveActivated += StartTrackingHeatChange;
         ballTransform.position = deactivatedPosition.position;
     }
 
     private void Start()
     {
+        LaserController.Instance.OnPulseWaveActivated += StartTrackingHeatChange;
         StartCoroutine(ShowBall(initialShowBallDelay));
     }
 
     private void StartTrackingHeatChange()
     {
         // first unsuscribe in case we were already subscribed
-        LaserController.OnHeatChanged -= HandleHeatChange;
-        LaserController.OnHeatChanged += HandleHeatChange;
+        LaserController.Instance.OnHeatChanged -= HandleHeatChange;
+        LaserController.Instance.OnHeatChanged += HandleHeatChange;
     }
 
     private void StopTrackingHeatChange()
     {
-        LaserController.OnHeatChanged -= HandleHeatChange;
+        LaserController.Instance.OnHeatChanged -= HandleHeatChange;
     }
 
     private IEnumerator ShowBall(float initialDelay)

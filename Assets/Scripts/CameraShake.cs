@@ -7,10 +7,9 @@ public class CameraShake : MonoBehaviour
     public float Duration;
     [SerializeField] private Transform shakeTarget;
     private bool isShaking = false;
-
-    private void Awake()
+    private void Start()
     {
-        LaserController.OnPulseWaveActivated += Shake;
+        LaserController.Instance.OnPulseWaveActivated += Shake;
     }
 
     public void Shake()

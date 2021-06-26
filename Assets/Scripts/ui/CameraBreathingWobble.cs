@@ -9,7 +9,7 @@ public class CameraBreathingWobble : MonoBehaviour
     private bool doEffect = true;
     private void Awake()
     {
-        GameController.OnGameStartedChanged +=  HandleGameStarted;
+        GameController.Instance.OnGameStartedChanged +=  HandleGameStarted;
     }
     void Start()
     {

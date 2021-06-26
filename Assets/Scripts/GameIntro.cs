@@ -29,7 +29,7 @@ public class GameIntro : MonoBehaviour
         cameraTransform.position = introCameraPosition.position;
         cameraTransform.rotation = introCameraPosition.rotation;
         cameraReference.orthographicSize = introOrthographicSize;
-        GameController.OnGameStartedChanged += HandleGameStarted;
+        GameController.Instance.OnGameStartedChanged += HandleGameStarted;
     }
 
     private void HandleGameStarted(bool gameStartedState)
