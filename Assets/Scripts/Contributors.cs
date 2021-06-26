@@ -113,7 +113,7 @@ public class Contributors : MonoBehaviour
 
     public static string GetCreditsText(
         string namePrefix = "•",
-        string contributionSeparator = ","
+        string contributionSeparator = ", "
     )
     {
         StringBuilder builder = new StringBuilder();
