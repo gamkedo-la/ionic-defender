@@ -3,9 +3,15 @@ using System.Collections;
 
 public class AnimatePulseWaveBall : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] Transform ballTransform;
     [SerializeField] Transform activatedPosition;
     [SerializeField] Transform deactivatedPosition;
+    [SerializeField] AnimationCurve animationCurve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
+    
+    [Header("Configurations")]
+    [SerializeField] float initialShowBallDelay = 1.0f;
+    private float introduceTheStarDuration = 1.0f;
 
     private void Awake()
     {
@@ -15,7 +21,7 @@ public class AnimatePulseWaveBall : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(ShowBall());
+        StartCoroutine(ShowBall(initialShowBallDelay));
     }
 
     private void StartTrackingHeatChange()
@@ -30,21 +36,17 @@ public class AnimatePulseWaveBall : MonoBehaviour
         LaserController.OnHeatChanged -= HandleHeatChange;
     }
 
-    private IEnumerator ShowBall()
+    private IEnumerator ShowBall(float initialDelay)
     {
-        float duration = 1.0f;
-        while(duration > 0.0f)
+        yield return new WaitForSeconds(initialDelay);
+
+        float duration = introduceTheStarDuration;
+        while(duration >= 0.0f)
         {
-            ballTransform.position = Vector3.Lerp(
-            activatedPosition.position,
-            deactivatedPosition.position,
-            duration);
-            yield return new WaitForEndOfFrame();
+            HandleHeatChange((duration, introduceTheStarDuration));
             duration -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
         }
-
-
-        ballTransform.position = activatedPosition.position;
     }
 
     private void HandleHeatChange((float current, float max) eventData)
@@ -54,10 +56,11 @@ public class AnimatePulseWaveBall : MonoBehaviour
         // we can get a percentage value (aka from 0.0 to 1.0)
         // and use that to Lerp between the activated and deactivated
         // positions of the ball. Hence, programatically animating the ball.
+        var percentage = eventData.current/eventData.max;
         ballTransform.position = Vector3.Lerp(
             activatedPosition.position,
             deactivatedPosition.position,
-            eventData.current/eventData.max);
+            animationCurve.Evaluate(percentage));
 
         // whenever the heat value reaches 0
         // we unsubscribe from the heat change events
