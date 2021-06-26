@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        OnGamePausedChanged += HandleGamePaused;
+        //OnGamePausedChanged += HandleGamePaused;
         OnGameStartedChanged += HandleGameStarted;
 
         if(false == skipMainMenu)
@@ -58,6 +58,8 @@ public class GameController : MonoBehaviour
             uiMenu.SetActive(false);
             uiHUD.SetActive(true);
         }
+
+        OnGamePausedChanged += HandleGamePaused;
     }
 
     private void Start()
@@ -78,11 +80,7 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             GamePaused = !GamePaused;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            GameStarted = !GameStarted;
+            Debug.Log("Toggling Game Paused");
         }
     }
 
@@ -97,15 +95,20 @@ public class GameController : MonoBehaviour
 
     private void HandleGamePaused(bool isPaused)
     {
+        mainMenu.SetActive(false);
+        
+        Debug.Log($"Setting GamePaused [{isPaused}]");
         if(isPaused)
         {
-            Time.timeScale = 0;
+            uiMenu.SetActive(true);
             pauseMenu.SetActive(true);
+            Time.timeScale = 0;
         }
         else
         {
-            Time.timeScale = 1;
+            uiMenu.SetActive(false);
             pauseMenu.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }
