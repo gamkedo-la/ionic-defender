@@ -58,7 +58,7 @@ public class GameIntro : MonoBehaviour
         // hence commenting this code out
         //cameraReference.orthographic = gameIsOrthographic;
 
-        while(remaining > 0)
+        while(remaining >= 0)
         {
             yield return new WaitForEndOfFrame();
             remaining -= Time.deltaTime;

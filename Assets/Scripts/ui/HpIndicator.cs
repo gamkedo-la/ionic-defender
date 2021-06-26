@@ -42,7 +42,7 @@ public class HpIndicator : MonoBehaviour
             if(CurrentHP < TargetHP)
             {
                 CurrentHP = TargetHP;
-            }            
+            }
 
             Fill.value = CurrentHP;
         }

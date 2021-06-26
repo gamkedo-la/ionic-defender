@@ -543,7 +543,7 @@ MonoBehaviour:
   CurrentHP: 0
   TargetHP: 0
   DrainSpeed: 2
-  DrainSpeedIfHit: 0
+  DrainSpeedIfHit: 2
   DurationHigherDrainAfterHit: 0
 --- !u!114 &106275097
 MonoBehaviour:
@@ -1482,9 +1482,9 @@ RectTransform:
   m_Father: {fileID: 1680640908}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1054.04, y: -854.48517}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &368728540
@@ -1857,7 +1857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &489115030
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3987,7 +3987,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5e833fa1e8bfefc4a967e21e5e93b294, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4365,9 +4365,9 @@ RectTransform:
   m_Father: {fileID: 1680640908}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1054.04, y: -299.48514}
   m_SizeDelta: {x: 300.71368, y: 87.940506}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1042349828
@@ -4441,7 +4441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Strength: 0.05
-  Duration: 0.25
+  Duration: 0.6
   shakeTarget: {fileID: 963194228}
 --- !u!4 &1061623239
 Transform:
@@ -5525,8 +5525,8 @@ MonoBehaviour:
   mainAudioSource: {fileID: 1755124013}
   audioLoopOne: {fileID: 131638566}
   explosionA: {fileID: 8300000, guid: 07716242ef4504070b4b8bfccdec33ca, type: 3}
-  explosionB: {fileID: 8300000, guid: 3d81369dc168fd24d8398c0c73e1b6a7, type: 3}
-  explosionC: {fileID: 8300000, guid: 7e612371d07acfc46b7402ec4d86b687, type: 3}
+  explosionB: {fileID: 8300000, guid: 3150aa3af2c828d4e905cf3a8b2c7885, type: 3}
+  explosionC: {fileID: 8300000, guid: 8b87a7cfdf8490c4984e843b1eda8b0f, type: 3}
   loopingLaser: {fileID: 8300000, guid: 09e8a3c4e71504b18ab58461e542de43, type: 3}
   pulseWave: {fileID: 8300000, guid: 2774f33fe5f6546f58a6eeeda84b1e2b, type: 3}
   waveCleared: {fileID: 8300000, guid: 0abbb58d308034fee90ed8801a8e4ab0, type: 3}
@@ -6487,7 +6487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1680640908
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7801,27 +7801,27 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 12fab6f04bc424027a30c0554d5951dc,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.24137986
+      value: 0.28000814
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 12fab6f04bc424027a30c0554d5951dc,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.24137986
+      value: 0.28000814
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 12fab6f04bc424027a30c0554d5951dc,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.24137986
+      value: 0.28000814
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 12fab6f04bc424027a30c0554d5951dc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.45233
+      value: -0.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 12fab6f04bc424027a30c0554d5951dc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.839
+      value: -0.93
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 12fab6f04bc424027a30c0554d5951dc,
         type: 3}
