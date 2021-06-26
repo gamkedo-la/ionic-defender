@@ -4713,8 +4713,9 @@ MonoBehaviour:
     laser damage can be upgraded\n\u2022 Muhammed \"EyeForcz\" Durmusoglu: turret
     tower and related models/texturing/rigging/rigging, laser ball\n\u2022 Chris
     DeLeon: Voxel city skyscrapers, heatwave visual, game over screen, compiled credits\n\u2022
-    Rami Bukhari: Pause menu\n\nGame made by members of HomeTeamGameDev.com Outpost
-    group"
+    Rami Bukhari: Pause menu\n\u2022 tiago.dev: sound fx manager, game events, start
+    menu logic, game intro, programmatic animation, camera shake\n\nGame made by
+    members of HomeTeamGameDev.com Outpost group"
 --- !u!222 &1194208177
 CanvasRenderer:
   m_ObjectHideFlags: 0
