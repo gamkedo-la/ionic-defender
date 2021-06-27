@@ -21,10 +21,12 @@ public class Contributors : MonoBehaviour
                 "optimizations",
                 "assorted project organization to simplify collaboration",
                 "difficulty tuning",
+                "UX improvements for better game feel",
                 "raw sound samples",
                 "target hp display",
                 "UI styling",
                 "assorted bug fixes",
+                "turret roof animation"
             }
         },
         new ProjectContributor()
@@ -107,6 +109,16 @@ public class Contributors : MonoBehaviour
                 "game intro",
                 "programmatic animation",
                 "camera shake"
+            }
+        },
+        new ProjectContributor()
+        {
+            Name = "Vaan Hope Khani",
+            Contributions = new string[]
+            {
+                "laser sounds",
+                "powerup acquired sound",
+                "gameover sound"
             }
         }
     };
