@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SoundFxKey { Explosion, LoopingLaser, PulseWave, WaveCleared}
+public enum SoundFxKey { Explosion, LoopingLaser, PulseWave, WaveCleared,
+    GameOver, PowerUp
+}
 public class SoundFXManager : MonoBehaviour
 {
     [Header("OneShot Audio Sources")]
@@ -18,6 +20,8 @@ public class SoundFXManager : MonoBehaviour
     [SerializeField] private AudioClip loopingLaser;
     [SerializeField] private AudioClip pulseWave;
     [SerializeField] private AudioClip waveCleared;
+    [SerializeField] private AudioClip powerUp;
+    [SerializeField] private AudioClip gameOver;
 
     [Header("Debug Switch")]
     [SerializeField] private bool DEBUG_LOG = false;
@@ -48,6 +52,8 @@ public class SoundFXManager : MonoBehaviour
         SetupLoopingLaserSound();
         SetupPulseWaveSounds();
         SetupWaveClearedSound();
+        SetupGameOverSound();
+        SetupPowerUpSound();
     }
 
     private void SetupAudioLoopSources()
@@ -91,6 +97,26 @@ public class SoundFXManager : MonoBehaviour
         };
 
         soundFxToAudioClipMap.Add(SoundFxKey.WaveCleared, audioClipArray);
+    }
+    
+    private void SetupGameOverSound()
+    {
+        var audioClipArray = new AudioClip[]
+        {
+            gameOver,
+        };
+
+        soundFxToAudioClipMap.Add(SoundFxKey.GameOver, audioClipArray);
+    }
+    
+    private void SetupPowerUpSound()
+    {
+        var audioClipArray = new AudioClip[]
+        {
+            powerUp,
+        };
+
+        soundFxToAudioClipMap.Add(SoundFxKey.PowerUp, audioClipArray);
     }
 
     public static void PlayOneShot(SoundFxKey soundFxKey)

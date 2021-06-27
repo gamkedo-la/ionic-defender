@@ -84,6 +84,7 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        SoundFXManager.PlayOneShot(SoundFxKey.GameOver);
         uiMenu.SetActive(true);
         gameOverMenu.SetActive(true);
         mainMenu.SetActive(false);

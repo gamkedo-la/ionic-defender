@@ -6152,9 +6152,11 @@ MonoBehaviour:
   explosionA: {fileID: 8300000, guid: 07716242ef4504070b4b8bfccdec33ca, type: 3}
   explosionB: {fileID: 8300000, guid: 3150aa3af2c828d4e905cf3a8b2c7885, type: 3}
   explosionC: {fileID: 8300000, guid: 8b87a7cfdf8490c4984e843b1eda8b0f, type: 3}
-  loopingLaser: {fileID: 8300000, guid: b7e2fe80f6695de4486a32c9d4e45a01, type: 3}
+  loopingLaser: {fileID: 8300000, guid: a87204412ddd3d741a11d1a20b03602a, type: 3}
   pulseWave: {fileID: 8300000, guid: 2774f33fe5f6546f58a6eeeda84b1e2b, type: 3}
   waveCleared: {fileID: 8300000, guid: 0abbb58d308034fee90ed8801a8e4ab0, type: 3}
+  powerUp: {fileID: 8300000, guid: 54022ca1b13a2594da71f24f6d5494a6, type: 3}
+  gameOver: {fileID: 8300000, guid: 6456e5b08a7c2d94abdebb023c2a826f, type: 3}
   DEBUG_LOG: 0
 --- !u!4 &1321289869
 Transform:
@@ -6700,7 +6702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrereqPurchased: 1
   FullyPurchased: 0
-  Cost: 80
+  Cost: 150
   score: {fileID: 770963696}
   HoverText: Purchase a Defensive Shield
   tooltip: {fileID: 404980797}
@@ -7952,7 +7954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrereqPurchased: 1
   FullyPurchased: 0
-  Cost: 150
+  Cost: 200
   score: {fileID: 770963696}
   HoverText: Upgrade Main Laser Damage
   tooltip: {fileID: 920594271}
@@ -9027,7 +9029,7 @@ MonoBehaviour:
   BuyTurret: {fileID: 1964944855}
   UpTurret: {fileID: 1922174039}
   ShieldButtonManager: {fileID: 1580079535}
-  AdditionalTurretDamage: 2
+  AdditionalTurretDamage: 3
   AdditionalLaserDamage: 15
 --- !u!1 &2144759441
 GameObject:

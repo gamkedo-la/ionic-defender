@@ -36,7 +36,7 @@ public class Upgrades : MonoBehaviour
 
     public void PurchaseTurret()
     {
-
+        PlayPowerUpPurchased();
         if(AutoTurret >= 2)
         {
             TurretL.GetComponent<AutoTurret>().UpgradeDamage(AdditionalTurretDamage);
@@ -44,7 +44,7 @@ public class Upgrades : MonoBehaviour
 
             score.SpendScrap(BuyTurret.Cost);
 
-            BuyTurret.Cost += 10;
+            BuyTurret.Cost += 40;
 
             BuyTurret.UpdateToolTipText("Upgrade Auto Turret Damage");
         }
@@ -70,7 +70,7 @@ public class Upgrades : MonoBehaviour
 
             //BuyTurret.FullyPurchased = true;
 
-            BuyTurret.Cost = 40;
+            BuyTurret.Cost = 50;
 
             BuyTurret.UpdateToolTipText("Upgrade Auto Turret Damage");
 
@@ -81,13 +81,19 @@ public class Upgrades : MonoBehaviour
 
     }
 
+    private static void PlayPowerUpPurchased()
+    {
+        SoundFXManager.PlayOneShot(SoundFxKey.PowerUp);
+    }
+
     public void UpgradeTurrets()
     {
+        PlayPowerUpPurchased();
         laserShooter.laserDamage += AdditionalLaserDamage;
 
         score.SpendScrap(UpTurret.Cost);
 
-        UpTurret.Cost += 30;
+        UpTurret.Cost += 60;
 
         UpTurret.UpdateToolTipText(UpTurret.HoverText);
 
@@ -95,6 +101,7 @@ public class Upgrades : MonoBehaviour
 
     public void PurchaseShield()
     {
+        PlayPowerUpPurchased();
         if (ShieldPurchased == false)
         {
 
@@ -115,7 +122,7 @@ public class Upgrades : MonoBehaviour
         else
         {
             ShieldManager.GetComponent<ShieldManager>().Upgrade();
-            ShieldButtonManager.Cost += 20;
+            ShieldButtonManager.Cost += 40;
         }
     }
 
