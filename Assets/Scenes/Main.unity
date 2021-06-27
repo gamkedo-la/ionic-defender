@@ -6152,7 +6152,7 @@ MonoBehaviour:
   explosionA: {fileID: 8300000, guid: 07716242ef4504070b4b8bfccdec33ca, type: 3}
   explosionB: {fileID: 8300000, guid: 3150aa3af2c828d4e905cf3a8b2c7885, type: 3}
   explosionC: {fileID: 8300000, guid: 8b87a7cfdf8490c4984e843b1eda8b0f, type: 3}
-  loopingLaser: {fileID: 8300000, guid: 09e8a3c4e71504b18ab58461e542de43, type: 3}
+  loopingLaser: {fileID: 8300000, guid: b7e2fe80f6695de4486a32c9d4e45a01, type: 3}
   pulseWave: {fileID: 8300000, guid: 2774f33fe5f6546f58a6eeeda84b1e2b, type: 3}
   waveCleared: {fileID: 8300000, guid: 0abbb58d308034fee90ed8801a8e4ab0, type: 3}
   DEBUG_LOG: 0
