@@ -176,6 +176,39 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  animationCurveRoof:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.083371624
+      outSlope: -0.083371624
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.41938773
+    - serializedVersion: 3
+      time: 0.1334928
+      value: 0.4523965
+      inSlope: 2.4464753
+      outSlope: 2.4464753
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.22032031
+      outWeight: 0.048082698
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.26029912
+      outSlope: -0.26029912
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.3438776
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Bone6L: {fileID: 1067612770}
   Bone6R: {fileID: 1388508826}
   Bone7L: {fileID: 1853112295}
@@ -9460,6 +9493,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070303687899284884, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98543024
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070303687899284884, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.001010004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070303687899284884, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0058505824
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070303687899284884, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.16997664
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070303687899284884, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.22800002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070303687899284884, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.64100003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070303687899284884, guid: fbefba2f112adb343b4bba4b4c6a2141,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -19.572
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbefba2f112adb343b4bba4b4c6a2141, type: 3}
