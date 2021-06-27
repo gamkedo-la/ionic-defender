@@ -83,13 +83,12 @@ public class HitableEnemy : MonoBehaviour
         {
             score.AddScrap(Scrap);
             GameObject T = Instantiate(ScrapText, transform.position, Quaternion.identity);
-            if (explosionParticles != null)
-            {
-                GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
-            }
             T.GetComponent<TextMesh>().text = Scrap.ToString();
         }
-
+        if (explosionParticles != null)
+        {
+            GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+        }
         SoundFXManager.PlayOneShot(SoundFxKey.Explosion);
         Destroy(this.gameObject);
     }
