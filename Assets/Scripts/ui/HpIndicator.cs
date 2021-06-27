@@ -63,7 +63,7 @@ public class HpIndicator : MonoBehaviour
 
     private float GetDrain()
     {
-        if (Time.time - lastHitTime <= DurationHigherDrainAfterHit)
+        if (Time.time - lastHitTime < DurationHigherDrainAfterHit)
         {
             return DrainSpeedIfHit;
         }
