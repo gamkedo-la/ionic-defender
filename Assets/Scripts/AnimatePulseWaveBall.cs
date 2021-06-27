@@ -3,8 +3,9 @@ using System.Collections;
 
 public class AnimatePulseWaveBall : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] Transform ballTransform;
+    [Header("References")] [SerializeField]
+    Transform ballTransform;
+
     [SerializeField] Transform activatedPosition;
     [SerializeField] Transform deactivatedPosition;
     [SerializeField] AnimationCurve animationCurve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
@@ -17,9 +18,10 @@ public class AnimatePulseWaveBall : MonoBehaviour
     public Transform Bone7R;
     public Transform Bone8L;
     public Transform Bone8R;
-    
-    [Header("Configurations")]
-    [SerializeField] float initialShowBallDelay = 1.0f;
+
+    [Header("Configurations")] [SerializeField]
+    float initialShowBallDelay = 1.0f;
+
     private float introduceTheStarDuration = 1.0f;
 
     private void Awake()
@@ -50,7 +52,7 @@ public class AnimatePulseWaveBall : MonoBehaviour
         yield return new WaitForSeconds(initialDelay);
 
         float duration = introduceTheStarDuration;
-        while(duration >= 0.0f)
+        while (duration >= 0.0f)
         {
             HandleHeatChange((duration, introduceTheStarDuration));
             duration -= Time.deltaTime;
@@ -65,7 +67,7 @@ public class AnimatePulseWaveBall : MonoBehaviour
         // we can get a percentage value (aka from 0.0 to 1.0)
         // and use that to Lerp between the activated and deactivated
         // positions of the ball. Hence, programatically animating the ball.
-        var percentage = eventData.current/eventData.max;
+        var percentage = eventData.current / eventData.max;
         ballTransform.position = Vector3.Lerp(
             activatedPosition.position,
             deactivatedPosition.position,
@@ -77,7 +79,7 @@ public class AnimatePulseWaveBall : MonoBehaviour
         // we unsubscribe from the heat change events
         // and we ensure that the ball is reset back
         // to the activated position
-        if(eventData.current == 0)
+        if (eventData.current == 0)
         {
             StopTrackingHeatChange();
             ballTransform.position = activatedPosition.position;
@@ -89,15 +91,18 @@ public class AnimatePulseWaveBall : MonoBehaviour
         float progress = animationCurveRoof.Evaluate(percentage);
         Bone6L.rotation = Quaternion.Lerp(Quaternion.Euler(-0.032f, -0.252f, -7.217f),
             Quaternion.Euler(-0.032f, -0.252f, -47f), progress);
-        Bone6R.rotation = Quaternion.Lerp(Quaternion.Euler(-0.032f, 0.252f, 7.217f), Quaternion.Euler(-0.032f, 0.252f, 47f),
+        Bone6R.rotation = Quaternion.Lerp(Quaternion.Euler(-0.032f, 0.252f, 7.217f),
+            Quaternion.Euler(-0.032f, 0.252f, 47f),
             progress);
         Bone7L.rotation = Quaternion.Lerp(Quaternion.Euler(-0.228f, -0.641f, -19.572f),
             Quaternion.Euler(-0.228f, -0.641f, -47f), progress);
-        Bone7R.rotation = Quaternion.Lerp(Quaternion.Euler(-0.228f, 0.641f, 19.572f), Quaternion.Euler(-0.228f, 0.641f, 47f),
+        Bone7R.rotation = Quaternion.Lerp(Quaternion.Euler(-0.228f, 0.641f, 19.572f),
+            Quaternion.Euler(-0.228f, 0.641f, 47f),
             progress);
         Bone8L.rotation = Quaternion.Lerp(Quaternion.Euler(-0.605f, -0.942f, -32.722f),
             Quaternion.Euler(-0.605f, -0.942f, -47f), progress);
-        Bone8R.rotation = Quaternion.Lerp(Quaternion.Euler(-0.605f, 0.942f, 32.722f), Quaternion.Euler(-0.605f, 0.942f, 47f),
+        Bone8R.rotation = Quaternion.Lerp(Quaternion.Euler(-0.605f, 0.942f, 32.722f),
+            Quaternion.Euler(-0.605f, 0.942f, 47f),
             progress);
     }
 }

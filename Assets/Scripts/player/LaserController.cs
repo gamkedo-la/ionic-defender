@@ -27,7 +27,15 @@ public class LaserController : MonoBehaviour
             _currentHeat = value;
             // if you don't want the OnHeatChanged event to fire
             // set the _currentHeat value directly.
-            OnHeatChanged?.Invoke((_currentHeat, maxHeatSeconds));
+            if (_currentHeat / maxHeatSeconds < .5f)
+            {
+                // XXX hack using if clause to play the ball animation only after a certain heat level
+                OnHeatChanged?.Invoke((_currentHeat * 2, maxHeatSeconds));
+            }
+            else
+            {
+                OnHeatChanged?.Invoke((maxHeatSeconds, maxHeatSeconds));
+            }
         }
     }
     private float _currentHeat;
