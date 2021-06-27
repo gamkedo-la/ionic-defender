@@ -8,6 +8,15 @@ public class AnimatePulseWaveBall : MonoBehaviour
     [SerializeField] Transform activatedPosition;
     [SerializeField] Transform deactivatedPosition;
     [SerializeField] AnimationCurve animationCurve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
+    [SerializeField] AnimationCurve animationCurveRoof = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
+
+    // trying to animate the turret base roof programmatically...
+    public Transform Bone6L;
+    public Transform Bone6R;
+    public Transform Bone7L;
+    public Transform Bone7R;
+    public Transform Bone8L;
+    public Transform Bone8R;
     
     [Header("Configurations")]
     [SerializeField] float initialShowBallDelay = 1.0f;
@@ -62,6 +71,8 @@ public class AnimatePulseWaveBall : MonoBehaviour
             deactivatedPosition.position,
             animationCurve.Evaluate(percentage));
 
+        animateTurretRoof(percentage);
+
         // whenever the heat value reaches 0
         // we unsubscribe from the heat change events
         // and we ensure that the ball is reset back
@@ -71,5 +82,22 @@ public class AnimatePulseWaveBall : MonoBehaviour
             StopTrackingHeatChange();
             ballTransform.position = activatedPosition.position;
         }
+    }
+
+    private void animateTurretRoof(float percentage)
+    {
+        float progress = animationCurveRoof.Evaluate(percentage);
+        Bone6L.rotation = Quaternion.Lerp(Quaternion.Euler(-0.032f, -0.252f, -7.217f),
+            Quaternion.Euler(-0.032f, -0.252f, -47f), progress);
+        Bone6R.rotation = Quaternion.Lerp(Quaternion.Euler(-0.032f, 0.252f, 7.217f), Quaternion.Euler(-0.032f, 0.252f, 47f),
+            progress);
+        Bone7L.rotation = Quaternion.Lerp(Quaternion.Euler(-0.228f, -0.641f, -19.572f),
+            Quaternion.Euler(-0.228f, -0.641f, -47f), progress);
+        Bone7R.rotation = Quaternion.Lerp(Quaternion.Euler(-0.228f, 0.641f, 19.572f), Quaternion.Euler(-0.228f, 0.641f, 47f),
+            progress);
+        Bone8L.rotation = Quaternion.Lerp(Quaternion.Euler(-0.605f, -0.942f, -32.722f),
+            Quaternion.Euler(-0.605f, -0.942f, -47f), progress);
+        Bone8R.rotation = Quaternion.Lerp(Quaternion.Euler(-0.605f, 0.942f, 32.722f), Quaternion.Euler(-0.605f, 0.942f, 47f),
+            progress);
     }
 }
