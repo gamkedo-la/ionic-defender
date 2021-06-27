@@ -57,7 +57,7 @@ public class LaserController : MonoBehaviour
 
     private void ProcessShootingInput()
     {
-        if(false == isShooting && Input.GetMouseButtonDown(0))
+        if(false == isShooting && Input.GetMouseButtonDown(0) && !overheat)
         {
             OnLaserStart?.Invoke();
         }
