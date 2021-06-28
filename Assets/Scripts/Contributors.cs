@@ -75,8 +75,31 @@ public class Contributors : MonoBehaviour
             Name = "Muhammed \"EyeForcz\" Durmusoglu",
             Contributions = new string[]
             {
-                "turret tower and related models/texturing/rigging/rigging",
+                "Turret tower and related models/texturing/rigging/rigging",
                 "laser ball"
+            }
+        },
+        new ProjectContributor()
+        {
+            Name = "tiago.dev",
+            Contributions = new string[]
+            {
+                "Sound fx manager",
+                "game events",
+                "start menu logic",
+                "game intro",
+                "programmatic animation",
+                "camera shake"
+            }
+        },
+        new ProjectContributor()
+        {
+            Name = "Vaan Hope Khani",
+            Contributions = new string[]
+            {
+                "Laser sounds",
+                "powerup acquired sound",
+                "gameover sound"
             }
         },
         new ProjectContributor()
@@ -96,29 +119,6 @@ public class Contributors : MonoBehaviour
             Contributions = new string[]
             {
                 "Pause menu"
-            }
-        },
-        new ProjectContributor()
-        {
-            Name = "tiago.dev",
-            Contributions = new string[]
-            {
-                "sound fx manager",
-                "game events",
-                "start menu logic",
-                "game intro",
-                "programmatic animation",
-                "camera shake"
-            }
-        },
-        new ProjectContributor()
-        {
-            Name = "Vaan Hope Khani",
-            Contributions = new string[]
-            {
-                "laser sounds",
-                "powerup acquired sound",
-                "gameover sound"
             }
         }
     };
