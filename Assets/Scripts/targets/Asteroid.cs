@@ -24,8 +24,8 @@ public class Asteroid : MonoBehaviour
         //1f - hitableEnemy.Health / hitableEnemy.maxHealth,
         transform.position = Vector3.MoveTowards(transform.position, Target.position, speed * Time.deltaTime);
         Color myColor = new Color(1f - hitableEnemy.Health / hitableEnemy.maxHealth, 0f, 0f, 1f);
-        myMaterial.material.SetColor("_EmissionColor", myColor);
-        myMaterial.material.EnableKeyword("_EMISSION");
+        myMaterial.material.SetColor("_BaseColor", myColor); // works better for webGL
+        //myMaterial.material.EnableKeyword("_EMISSION");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
